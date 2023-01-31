@@ -1,0 +1,54 @@
+:root {
+  --color-grey: #404040;
+  --color-red: #dd628b;
+  --color-white: #fff;
+  --color-grey-white: #a8b2d1;
+  --color-grey-dark: #7a839c;
+  --color-green: #3fb9b4;
+  --color-green-light: #3fb9b542;
+  --color-text: #ddd;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  letter-spacing: 1.5px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+.preloader {
+  background-color: var(--color-grey);
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+.preloader .preloader_logo-logo {
+  animation: scaleRotation 2s ease-out 0s infinite alternate both;
+  object-fit: cover;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.preloader-end {
+  display: none;
+}
+.home-page {
+  display: none;
+}
+
+.preloader_logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

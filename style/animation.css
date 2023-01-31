@@ -1,0 +1,18 @@
+@keyframes scaleRotation {
+  0% {
+    transform: rotate(0deg) scale(0.8);
+  }
+
+  50% {
+    transform: rotate(45deg) scale(0.9);
+  }
+  75% {
+    transform: rotate(180deg) scale(1);
+  }
+  100% {
+    width: 5rem;
+    height: 5rem;
+    transform: rotate(-180deg) scale(1.5);
+    object-fit: cover;
+  }
+}
