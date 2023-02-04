@@ -19,6 +19,40 @@ window.addEventListener("scroll", () => {
 });
 
 const hamburgerWrapper = document.querySelector(".hamburger-wrapper");
+const navLinks = document.querySelector(".nav-links");
+const headerEl = document.querySelector(".nav");
 hamburgerWrapper.addEventListener("click", () => {
-  hamburgerWrapper.classList.toggle("active");
+  if (x.matches) {
+    if (hamburgerWrapper.classList.toggle("active")) {
+      navLinks.style.display = "flex";
+    } else if (hamburgerWrapper) {
+      navLinks.style.display = "none";
+    }
+  }
+});
+
+var x = window.matchMedia("(max-width: 870px)");
+//////////////////////////////////////////////////////////
+// sroll smooth
+///////////////////////////////////////////////////////////
+const allLinks = document.querySelectorAll("a:link");
+allLinks.forEach(function (link) {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    const href = link.getAttribute("href");
+    //Scroll to thre top
+    if (href === "#")
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    // scroll to other link
+    if (href !== "#" && href.startsWith("#")) {
+      const sectionEl = document.querySelector(href);
+      sectionEl.scrollIntoView({ behavior: "smooth" });
+    }
+    //close mobile navigation
+    if (link.classList.contains("nav-link"))
+      hamburgerWrapper.classList.toggle("active");
+  });
 });

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./style/index.css" />
     <link rel="stylesheet" href="./style/animation.css" />
     <link rel="stylesheet" href="./style/preload.css" />
+    <link rel="stylesheet" href="./style/responsive.css" />
   </head>
   <body>
     <div class="preloader">
@@ -37,29 +38,30 @@
                 <span></span>
               </div>
             </div>
-            <div class="link">
-              <ul class="nav-links">
-                <li>
-                  <a href="#" class="nav-link"> <span>01. </span>Home</a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link"> <span>02. </span>About</a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link"> <span>03. </span>Skills</a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link"> <span>04. </span>Portfolio</a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link"> <span>05. </span>Blogs</a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link"> <span>06. </span>Contact</a>
-                </li>
-                <a href="#" class="btn btn-login">Login</a>
-              </ul>
-            </div>
+
+            <ul class="nav-links">
+              <li>
+                <a href="#home" class="nav-link"> <span>01. </span>Home</a>
+              </li>
+              <li>
+                <a href="#about" class="nav-link"> <span>02. </span>About</a>
+              </li>
+              <li>
+                <a href="#" class="nav-link"> <span>03. </span>Skills</a>
+              </li>
+              <li>
+                <a href="#portfolio" class="nav-link">
+                  <span>04. </span>Portfolio</a
+                >
+              </li>
+              <li>
+                <a href="#" class="nav-link"> <span>05. </span>Blogs</a>
+              </li>
+              <li>
+                <a href="#" class="nav-link"> <span>06. </span>Contact</a>
+              </li>
+              <a href="#" class="btn btn-login">Login</a>
+            </ul>
           </nav>
           <div class="icons-links">
             <ul class="ul-links">
@@ -185,7 +187,7 @@
             </ul>
           </div>
 
-          <div class="content-container">
+          <div class="content-container" id="home">
             <div class="content">
               <div class="content-text">
                 <h3>
@@ -222,7 +224,147 @@
           </div>
         </div>
       </div>
-      <div class="about-container"></div>
+      <div class="about-container" id="about">
+        <div class="row">
+          <div class="title-container">
+            <h2 class="title"><span class="number">02. </span>ABOUT-ME</h2>
+          </div>
+          <div class="about-content">
+            <div class="paragraph-text">
+              <p>
+                Hello! My name is Cynthia Kayitare, and I like making things for
+                the internet. My interest in web development began when I
+                enrolled in college in 2014, and from there I began my journey
+                to improve my coding abilities.
+              </p>
+              <p>Here are some current technologies I've worked with:</p>
+              <div class="marginTop-sm">
+                <a href="#" class="btn btn-login">Download my CV</a>
+              </div>
+            </div>
+            <div class="about-image">
+              <img
+                src="./images/cy-removebg.png"
+                alt="image"
+                class="img-about"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-container" id="portfolio">
+        <div class="row">
+          <div class="title-container">
+            <h2 class="text-left"><span class="number">03. </span>Portfolio</h2>
+          </div>
+          <div class="portfolio">
+            <div class="project-img">
+              <img
+                src="./images/awe.png"
+                alt="image-project"
+                class="img-port"
+              />
+
+              <p class="proj-exp">
+                A web app for visualizing personalized Spotify data. View your
+                top artists, top tracks, recently played tracks, and detailed
+                audio information about each track.
+              </p>
+              <div class="title-port">
+                <p>Featured Project</p>
+                <h3>AWE Rwanda</h3>
+              </div>
+              <div class="skills-work">
+                <ul>
+                  <li>React JS</li>
+                  <li>Netlify</li>
+                  <li>Antd</li>
+                  <li>Material UI</li>
+                </ul>
+              </div>
+              <div class="icons">
+                <a
+                  href="https://github.com/KAYITARES"
+                  aria-label="GitHub"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <svg
+                    height="24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-github"
+                  >
+                    <title>GitHub</title>
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                    ></path>
+                  </svg>
+                </a>
+                <a
+                  href="https://awerwanda.netlify.com/"
+                  aria-label="External Link"
+                  class="external"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  ><svg
+                    height="24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-external-link"
+                  >
+                    <title>External Link</title>
+                    <path
+                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                    ></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio">
+            <div class="portfolio-two">
+              <p class="two-exp">
+                A web app for visualizing personalized Spotify data. View your
+                top artists, top tracks, recently played tracks, and detailed
+                audio information about each track.
+              </p>
+
+              <img
+                src="./images/shecancode.png"
+                alt="image-project"
+                class="imges-port"
+              />
+              <div class="title-port">
+                <p>Featured Project</p>
+                <h3>SheCanCODE</h3>
+              </div>
+              <div class="skills-work">
+                <ul>
+                  <li>React JS</li>
+                  <li>Node JS</li>
+                  <li>Nodemailer</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="./js/index.js"></script>
