@@ -581,10 +581,25 @@ body {
 }
 
 .img-port {
-  width: 60%;
+  width: 100%;
   display: block;
   /* height: 35rem; */
   object-fit: cover;
+}
+.im-overlay {
+  position: relative;
+  width: 60%;
+}
+.im-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* color: red; */
+  width: 100%;
+  height: 100%;
+  /* z-index: 15; */
+  background-color: #3fb9b5a4;
 }
 .portfolio {
   padding: 6rem 0;
