@@ -65,10 +65,11 @@ html {
 }
 .blog-url-cont {
   background-color: var(--color-red);
+  width: 100%;
 }
 .blog-links {
   display: flex;
-  width: 100%;
+
   gap: 3rem;
   margin-left: 9rem;
   list-style-type: none;
@@ -193,6 +194,6 @@ html {
   color: var(--color-red);
   display: flex;
   font-weight: bold;
-  /* align-items: center;
-  justify-content: center; */
+  align-items: center;
+  justify-content: center;
 }
