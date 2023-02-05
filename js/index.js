@@ -6,9 +6,12 @@ window.onload = function () {
   setTimeout(() => {
     preloader.classList.add("preloader-end");
     document.querySelector(".home-page").style.display = "block";
+    document.querySelector(".blog-page").style.display = "block";
   }, 3000);
 };
-
+const d = new Date();
+let year = d.getFullYear();
+let date = (document.querySelector(".year").innerHTML = year);
 let nav = document.querySelector(".nav");
 window.addEventListener("scroll", () => {
   if (document.documentElement.scrollTop > 100) {
@@ -35,7 +38,7 @@ var x = window.matchMedia("(max-width: 870px)");
 //////////////////////////////////////////////////////////
 // sroll smooth
 ///////////////////////////////////////////////////////////
-const allLinks = document.querySelectorAll("a:link");
+const allLinks = document.querySelectorAll(".navz");
 allLinks.forEach(function (link) {
   link.addEventListener("click", function (e) {
     e.preventDefault();
