@@ -7,6 +7,7 @@ window.onload = function () {
     preloader.classList.add("preloader-end");
     document.querySelector(".home-page").style.display = "block";
     document.querySelector(".blog-page").style.display = "block";
+    document.querySelector(".sign-up").style.display = "block";
   }, 3000);
 };
 const d = new Date();
@@ -58,4 +59,17 @@ allLinks.forEach(function (link) {
     if (link.classList.contains("nav-link"))
       hamburgerWrapper.classList.toggle("active");
   });
+});
+
+let login = document.querySelector(".loginFunctDisplay");
+let modal = document.querySelector(".modal");
+let homecont = document.querySelector("#home");
+let close = document.querySelector(".close-icon");
+login.addEventListener("click", () => {
+  homecont.classList.add("hidden");
+  modal.classList.add("show");
+});
+close.addEventListener("click", () => {
+  homecont.classList.remove("hidden");
+  modal.classList.remove("show");
 });

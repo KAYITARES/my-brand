@@ -68,7 +68,7 @@
                   <span>06. </span>Contact</a
                 >
               </li>
-              <a href="#" class="btn btn-login">Login</a>
+              <a href="#" class="btn btn-login loginFunctDisplay">Login</a>
             </ul>
           </nav>
           <div class="icons-links">
@@ -193,6 +193,50 @@
                 </a>
               </li>
             </ul>
+          </div>
+          <div class="modal">
+            <section>
+              <div class="form-box">
+                <div class="form-value">
+                  <div class="close-icon">
+                    <ion-icon
+                      name="close-circle-outline"
+                      class="close-login-btn"
+                    ></ion-icon>
+                  </div>
+
+                  <form action="">
+                    <h2>Login</h2>
+
+                    <div class="inputbox">
+                      <ion-icon name="mail-outline"></ion-icon>
+                      <input type="email" required />
+                      <label for="email">Email</label>
+                    </div>
+                    <div class="inputbox">
+                      <ion-icon name="lock-closed-outline"></ion-icon>
+                      <input type="password" name="password" id="" required />
+                      <label for="password">Password</label>
+                    </div>
+                    <div class="forget">
+                      <label for="">
+                        <input type="checkbox" />Remember Me
+                        <a href="#">Forget Password</a>
+                      </label>
+                    </div>
+                    <div class="center marginTop-sm">
+                      <a href="#" class="btn btn-login btn-green lg">Login</a>
+                    </div>
+                    <div class="register">
+                      <p>
+                        Don't have an account
+                        <a href="./sign-up.html">Register</a>
+                      </p>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </section>
           </div>
 
           <div class="content-container" id="home">
@@ -766,11 +810,43 @@
                 <span class="number">06. </span>Contact-Me
               </h2>
               <div class="right-side">
-                <h3>Level up your brand</h3>
-                <p>
-                  You can reach us anytime via
-                  <a href="mailto:kacynthian@gmai.com">kacynthian@gmail.com</a>
-                </p>
+                <form action="" class="form">
+                  <div class="form__group">
+                    <input
+                      type="text"
+                      class="form__input"
+                      placeholder="Full name"
+                      id="name"
+                      required=""
+                    />
+                    <label for="name" class="form__label">Full name</label>
+                  </div>
+                  <div class="form__group">
+                    <input
+                      type="email"
+                      class="form__input"
+                      placeholder="email"
+                      id="email"
+                      required=""
+                    />
+                    <label for="email" class="form__label">Email</label>
+                  </div>
+                  <div class="form__group">
+                    <textarea
+                      name="message"
+                      id="message"
+                      rows="5"
+                      class="form__input"
+                      placeholder="Type Your Message"
+                    ></textarea
+                    ><label for="message" class="form__label"
+                      >Type Your Message</label
+                    >
+                  </div>
+                  <div class="center">
+                    <a href="#" class="btn btn-login btn-green">Send →</a>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -779,43 +855,15 @@
       <div class="footer">
         <p>Copyright &copy;<span class="year"></span>&#2606;KAYITARE&#2606;</p>
       </div>
-      <div class="modal">
-        <section>
-          <div class="form-box">
-            <div class="form-value">
-              <form action="">
-                <h2>Login</h2>
-                <div class="inputbox">
-                  <ion-icon name="mail-outline"></ion-icon>
-                  <input type="email" name="email" id="" required />
-                  <label for="email">Email</label>
-                </div>
-                <div class="inputbox">
-                  <ion-icon name="lock-closed-outline"></ion-icon>
-                  <input type="password" name="password" id="" required />
-                  <label for="password">Password</label>
-                </div>
-                <div class="forget">
-                  <label for="">
-                    <input type="checkbox">Remember Me <a href="#">Forget Password</a>
-                  </label>
-                 
-                </div>
-                <div class="center marginTop-sm">
-                  <a href="#" class="btn btn-login  btn-green">Login</a>
-                </div>
-                <div class="register">
-                  <p>Don't have an account <a href="#">Register</a></p>
-                </div>
-              </form>
-            </div>
-          </section>
-        </div>
-          </div>
-          
     </div>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
     <script src="./js/index.js"></script>
   </body>
 </html>

@@ -49,6 +49,9 @@ body {
 .blog-page {
   display: none;
 }
+.sign-up {
+  display: none;
+}
 
 .preloader_logo {
   position: absolute;
