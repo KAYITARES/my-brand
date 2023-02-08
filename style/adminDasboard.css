@@ -241,13 +241,18 @@ main .insights h3 {
   margin: 1rem 0 0.6rem;
   font-size: 1rem;
 }
-main .recent-blog {
+main .recent-blog,
+main .addArticles {
   margin-top: 2rem;
 }
-main .recent-blog h2 {
+
+main .recent-blog h2,
+main .addArticles h2 {
   margin-bottom: 0.8rem;
 }
-main .recent-blog table {
+
+main .recent-blog table,
+main .addArticles form {
   background: var(--color-white);
   width: 100%;
   border-radius: var(--card-border-radius);
@@ -256,6 +261,7 @@ main .recent-blog table {
   box-shadow: var(--box-shadow);
   transition: all 0.3s ease;
 }
+
 main .recent-blog table:hover {
   box-shadow: none;
 }
@@ -316,7 +322,7 @@ main .recent-blog a {
   text-align: right;
 }
 .right .recent-updates {
-  margin-top: 8rem;
+  margin-top: 10rem;
 }
 .right .recent-updates h2 {
   margin-bottom: 0.8rem;
@@ -337,3 +343,38 @@ main .recent-blog a {
   gap: 1rem;
   margin-bottom: 1rem;
 }
+.addArticles .form__group:not(:last-child) {
+  margin-bottom: 0rem;
+}
+.addArticles .form__input {
+  background: var(--color-primary);
+  width: 100%;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  margin: 0 auto;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.addArticles .form__label {
+  font-size: 1rem;
+  margin-left: 2rem;
+  text-align: left;
+  font-weight: 700;
+}
+
+.title-auth {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* .addArticles .inputbox {
+  border-bottom: 2px solid #000;
+}
+.addArticles .inputbox label {
+  color: #000;
+}
+
+.addArticles .inputbox input {
+  color: #000;
+} */

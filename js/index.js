@@ -6,8 +6,6 @@ window.onload = function () {
   setTimeout(() => {
     preloader.classList.add("preloader-end");
     document.querySelector(".home-page").style.display = "block";
-    document.querySelector(".blog-page").style.display = "block";
-    document.querySelector(".sign-up").style.display = "block";
   }, 3000);
 };
 const d = new Date();

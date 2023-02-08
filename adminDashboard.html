@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
     />
+    <link rel="stylesheet" href="./style/index.css" />
     <link rel="stylesheet" href="./style/adminDasboard.css" />
   </head>
   <body>
@@ -29,15 +30,15 @@
             <span class="material-icons-sharp">grid_view</span>
             <h3>Dashboard</h3>
           </a>
-          <a href="#" class="active">
+          <a href="#" class="addArticleLink active">
             <span class="material-icons-sharp">add</span>
             <h3>Add Article</h3>
           </a>
-          <a href="#">
+          <a href="#" class="viewArticleLink">
             <span class="material-icons-sharp">visibility</span>
             <h3>View Articles</h3>
           </a>
-          <a href="#">
+          <a href="#" class="queryLink">
             <span class="material-icons-sharp">comment</span>
             <h3>Questions</h3>
             <span class="message-count">26</span>
@@ -87,67 +88,175 @@
             </div>
           </div>
         </div>
-        <div class="recent-blog">
-          <h2>Recent Blogs</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Blog Author</th>
-                <th>Blog Title</th>
-                <th>Published Date</th>
-                <th colspan="3">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>KAYITARE Cynthia</td>
-                <td>HTML & CSS</td>
-                <td>24/02/2000</td>
-                <td style="color: var(--color-primary)">view</td>
-                <td style="color: var(--color-success)">update</td>
-                <td style="color: var(--color-danger)">Delete</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>KAYITARE Cynthia</td>
-                <td>HTML & CSS</td>
-                <td>24/02/2000</td>
-                <td style="color: var(--color-primary)">view</td>
-                <td style="color: var(--color-success)">update</td>
-                <td style="color: var(--color-danger)">Delete</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>KAYITARE Cynthia</td>
-                <td>HTML & CSS</td>
-                <td>24/02/2000</td>
-                <td style="color: var(--color-primary)">view</td>
-                <td style="color: var(--color-success)">update</td>
-                <td style="color: var(--color-danger)">Delete</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>KAYITARE Cynthia</td>
-                <td>HTML & CSS</td>
-                <td>24/02/2000</td>
-                <td style="color: var(--color-primary)">view</td>
-                <td style="color: var(--color-success)">update</td>
-                <td style="color: var(--color-danger)">Delete</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>KAYITARE Cynthia</td>
-                <td>HTML & CSS</td>
-                <td>24/02/2000</td>
-                <td style="color: var(--color-primary)">view</td>
-                <td style="color: var(--color-success)">update</td>
-                <td style="color: var(--color-danger)">Delete</td>
-              </tr>
-            </tbody>
-          </table>
-          <a href="#">Show All</a>
+        <div class=".main_container-main">
+          <div class="recent-blog recent-blog-blog">
+            <h2>Recent Blogs</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Blog Author</th>
+                  <th>Blog Title</th>
+                  <th>Published Date</th>
+                  <th colspan="3">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>KAYITARE Cynthia</td>
+                  <td>HTML & CSS</td>
+                  <td>24/02/2000</td>
+                  <td style="color: var(--color-primary)">view</td>
+                  <td style="color: var(--color-success)">update</td>
+                  <td style="color: var(--color-danger)">Delete</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>KAYITARE Cynthia</td>
+                  <td>HTML & CSS</td>
+                  <td>24/02/2000</td>
+                  <td style="color: var(--color-primary)">view</td>
+                  <td style="color: var(--color-success)">update</td>
+                  <td style="color: var(--color-danger)">Delete</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>KAYITARE Cynthia</td>
+                  <td>HTML & CSS</td>
+                  <td>24/02/2000</td>
+                  <td style="color: var(--color-primary)">view</td>
+                  <td style="color: var(--color-success)">update</td>
+                  <td style="color: var(--color-danger)">Delete</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>KAYITARE Cynthia</td>
+                  <td>HTML & CSS</td>
+                  <td>24/02/2000</td>
+                  <td style="color: var(--color-primary)">view</td>
+                  <td style="color: var(--color-success)">update</td>
+                  <td style="color: var(--color-danger)">Delete</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>KAYITARE Cynthia</td>
+                  <td>HTML & CSS</td>
+                  <td>24/02/2000</td>
+                  <td style="color: var(--color-primary)">view</td>
+                  <td style="color: var(--color-success)">update</td>
+                  <td style="color: var(--color-danger)">Delete</td>
+                </tr>
+              </tbody>
+            </table>
+            <a href="#">Show All</a>
+          </div>
+          <div class="addArticles">
+            <h2>Add Blogs</h2>
+            <form action="" class="fom">
+              <div class="title-auth">
+                <div class="form__group">
+                  <input
+                    type="text"
+                    class="form__input"
+                    placeholder="Blog Title"
+                    id="blogTitle"
+                    required=""
+                  />
+                  <label for="blogTitle" class="form__label">Blog Title</label>
+                </div>
+                <div class="form__group">
+                  <input
+                    type="text"
+                    class="form__input"
+                    placeholder="Blog Author"
+                    id="blogAuthor"
+                    required=""
+                  />
+                  <label for="blogAuthor" class="form__label"
+                    >Blog Author</label
+                  >
+                </div>
+              </div>
+
+              <div class="title-auth">
+                <div class="form__group">
+                  <input
+                    type="file"
+                    class="form__input"
+                    placeholder="Blog Images"
+                    id="blogImage"
+                    required=""
+                  />
+                  <label for="blogImage" class="form__label">Blog Image</label>
+                </div>
+                <div class="form__group">
+                  <input
+                    type="datetime-local"
+                    class="form__input"
+                    placeholder="Blog Published Date"
+                    id="blogDate"
+                    required=""
+                    class="date-width"
+                  />
+                  <label for="blogDate" class="form__label"
+                    >Blog Published Date</label
+                  >
+                </div>
+              </div>
+
+              <div class="form__group">
+                <textarea
+                  name="blogSummary"
+                  id="blogSummary"
+                  rows="2"
+                  class="form__input"
+                  placeholder="Type Summary"
+                ></textarea
+                ><label for="message" class="form__label">Type Summary</label>
+              </div>
+              <div class="form__group">
+                <textarea
+                  name="blogDescription"
+                  id="blogSummary"
+                  rows="2"
+                  class="form__input"
+                  placeholder="blogDescription"
+                ></textarea
+                ><label for="blogDescription" class="form__label"
+                  >Blog Description"</label
+                >
+              </div>
+            </form>
+          </div>
+          <div class="recent-blog recent-queries">
+            <h2>Queries</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Messages</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>KAYITARE Cynthia</td>
+                  <td>kacynthian@gmail.com</td>
+                  <td style="color: var(--color-primary)">view</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>KAYITARE Cynthia</td>
+                  <td>kacynthian@gmail.com</td>
+                  <td style="color: var(--color-primary)">view</td>
+                </tr>
+              </tbody>
+            </table>
+            <a href="#">Show All</a>
+          </div>
         </div>
       </main>
       <div class="right">
@@ -204,4 +313,5 @@
       </div>
     </div>
   </body>
+  <script src="./js/admin.js"></script>
 </html>

@@ -832,6 +832,7 @@ img.imges-port {
 }
 .modal {
   display: none;
+  transition: all 0.3s ease;
 }
 section {
   display: flex;
@@ -953,7 +954,7 @@ input:valid ~ label {
   /* justify-content: flex-e; */
 }
 .form__group:not(:last-child) {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0rem;
 }
 .form__input {
   padding: 1rem 2rem;
