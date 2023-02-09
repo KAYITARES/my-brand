@@ -61,6 +61,18 @@ Blogs.forEach((blog, index) => {
 const publisherCount = (document.querySelector(".publisher-count").innerHTML =
   Blogs.length);
 
+const recentAuth = document.querySelectorAll(".recentAuth");
+const recently = Blogs.slice(-3).reverse();
+
+recently.forEach((blog) => {
+  recentAuth.innerText = blog.blogAuth;
+  console.log(recentAuth);
+});
+
+recentAuth.forEach((rec) => {
+  // rec.innerHTML = recentFunc();
+  console.log(rec);
+});
 Query.forEach((query, index) => {
   const tr = document.createElement("tr");
   const trContent = `
