@@ -34,6 +34,15 @@
   --padding-1: 1.2rem;
   --box-shadow: 0 2rem 3rem var(--color-light);
 }
+/* dark theme */
+.dark-theme {
+  --color-background: #181a1e;
+  --color-white: #202528;
+  --color-dark: #edeffd;
+  --color-dark-variant: #a3bdcc;
+  --color-light: rgba(0, 0, 0, 0.4);
+  --box-shadow: 0 2rem 3rem var(--color-light);
+}
 html {
   font-size: 14px;
 }
@@ -112,7 +121,7 @@ aside {
   height: 100vh;
 }
 aside .top {
-  background-color: white;
+  /* background-color: white; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -322,7 +331,7 @@ main .recent-blog a {
   text-align: right;
 }
 .right .recent-updates {
-  margin-top: 10rem;
+  margin-top: 1.4rem;
 }
 .right .recent-updates h2 {
   margin-bottom: 0.8rem;
@@ -365,16 +374,176 @@ main .recent-blog a {
 
 .title-auth {
   display: flex;
+  gap: 0.3rem;
   align-items: center;
   justify-content: space-between;
 }
-/* .addArticles .inputbox {
-  border-bottom: 2px solid #000;
+.addArticles {
+  display: none;
 }
-.addArticles .inputbox label {
-  color: #000;
+.recent-queries {
+  display: none;
+}
+.right .blogs-anal {
+  margin-top: 4.8rem;
+  display: block;
+  /* background-color: red; */
+}
+.right .blogs-anal .bloge {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+  padding: 1.4rem var(--card-padding);
+  border-radius: var(--border-radius-3);
+  box-shadow: var(--box-shadow);
+  transition: all 0.3s ease;
+  background-color: transparent;
+  border: 2px dashed var(--color-primary);
+  color: var(--color-primary);
+}
+.right .blogs-anal .bloge:hover {
+  box-shadow: none;
 }
 
-.addArticles .inputbox input {
-  color: #000;
-} */
+.right .article {
+  display: flex !important;
+  align-items: center;
+  gap: 0.6rem;
+  /* font-size: 1.8rem; */
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 94%;
+    grid-template-columns: 7rem auto 23rem;
+  }
+  aside .logo h2 {
+    display: none;
+  }
+  aside .sidebar h3 {
+    display: none;
+  }
+  aside .sidebar a {
+    width: 5.6rem;
+  }
+  aside .sidebar a:last-child {
+    position: relative;
+    margin-top: 1.8rem;
+  }
+  main .insights {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  main .recent-blog,
+  main .addArticles {
+    width: 94%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 2rem 0 0 8.8rem;
+  }
+  main .recent-blog table,
+  main .addArticles form {
+    width: 83vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+  aside {
+    position: fixed;
+    left: -100%;
+    background: var(--color-white);
+    width: 18rem;
+    z-index: 3;
+    box-shadow: 1rem 3rem 4rem var(--color-light);
+    height: 100vh;
+    padding-right: var(--card-padding);
+    display: none;
+    animation: showMenu 0.4s ease forwards;
+  }
+  @keyframes showMenu {
+    to {
+      left: 0;
+    }
+  }
+  aside .logo {
+    margin-left: 1rem;
+  }
+  aside .logo h2 {
+    display: inline;
+  }
+  aside .sidebar h3 {
+    display: inline;
+  }
+  aside .sidebar a {
+    width: 100%;
+    height: 3.4rem;
+  }
+  aside .sidebar a:last-child {
+    position: absolute;
+    bottom: 5rem;
+  }
+  aside .close {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  main {
+    margin-top: 8rem;
+    padding: 0 1rem;
+  }
+  main .recent-blog,
+  main .addArticles {
+    position: relative;
+    margin: 3rem 0 0 0;
+    width: 100%;
+  }
+  main .recent-blog table,
+  main .addArticles form {
+    width: 100%;
+    margin: 0;
+  }
+  .right {
+    width: 94%;
+    margin: 0 auto 4rem;
+  }
+  .right .top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    padding: 0 0.8rem;
+    height: 4.6rem;
+    background: var(--color-white);
+    width: 100%;
+    margin: 0;
+    z-index: 2;
+    box-shadow: 0 1rem 1rem var(--color-light);
+  }
+  .right .top .theme-toggler {
+    width: 4.4rem;
+    position: absolute;
+    left: 66%;
+  }
+  .right .profile .info {
+    display: none;
+  }
+  .right .top button {
+    display: inline-block;
+    background: transparent;
+    cursor: pointer;
+    color: var(--color-dark);
+    position: absolute;
+    left: 1rem;
+  }
+  .right .top button span {
+    font-size: 2rem;
+  }
+}
