@@ -856,13 +856,13 @@ section {
 .form-box {
   position: relative;
   width: 40rem;
-  height: 45rem;
+  /* height: 45rem; */
   background-color: transparent;
   border: 2px solid rgba(255, 255, 255, 0.408);
   display: flex;
   border-radius: 20px;
   backdrop-filter: blur(15px);
-
+  padding: 3rem 0;
   justify-content: center;
   align-items: center;
 }
@@ -1001,4 +1001,18 @@ input:valid ~ label {
 }
 .textarea {
   width: 100%;
+}
+.form__group.success input {
+  border-color: #09c372;
+}
+.form__group.error input {
+  border-color: red;
+}
+.form__group .error {
+  color: #ff3860;
+  font-size: 12px;
+  /* min-height: 13px; */
+}
+.form__group input:focus {
+  outline: 0;
 }

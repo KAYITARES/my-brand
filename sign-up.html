@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./style/animation.css" />
     <link rel="stylesheet" href="./style/preload.css" />
     <link rel="stylesheet" href="./style/responsive.css" />
+    <script defer src="./js/validation.js"></script>
   </head>
   <body>
     <div class="preloader">
@@ -38,42 +39,84 @@
                 <span></span>
               </div>
             </div>
-
-            <ul class="nav-links">
-              <li>
-                <a href="#home" class="nav-link navz"> <span>01. </span>Home</a>
-              </li>
-              <li>
-                <a href="#about" class="nav-link navz">
-                  <span>02. </span>About</a
-                >
-              </li>
-              <li>
-                <a href="#portfolio" class="nav-link navz">
-                  <span>03. </span>Portfolio</a
-                >
-              </li>
-              <li>
-                <a href="#skills" class="nav-link navz">
-                  <span>04. </span>Skills</a
-                >
-              </li>
-              <li>
-                <a href="./blogs.html" class="nav-link">
-                  <span>05. </span>Blogs</a
-                >
-              </li>
-              <li>
-                <a href="#contact" class="nav-link navz">
-                  <span>06. </span>Contact</a
-                >
-              </li>
-              <a href="#" class="btn btn-login loginFunctDisplay">Login</a>
-            </ul>
           </nav>
         </div>
+        <section>
+          <div class="form-box">
+            <div class="form-value">
+              <div class="close-icon">
+                <ion-icon
+                  name="close-circle-outline"
+                  class="close-login-btn"
+                ></ion-icon>
+              </div>
+
+              <form action="" id="formSignUp">
+                <h2 style="margin-bottom: 1.8rem">Sign-Up</h2>
+
+                <div class="form__group">
+                  <input
+                    type="text"
+                    class="form__input"
+                    placeholder="Full name"
+                    id="name"
+                    name="name"
+                  />
+
+                  <label for="name" class="form__label">Full Name</label>
+                  <div class="error"></div>
+                </div>
+                <div class="form__group">
+                  <input
+                    type="text"
+                    class="form__input"
+                    placeholder="Email"
+                    id="email"
+                    name="email"
+                  />
+                  <label for="email" class="form__label">Email</label>
+                  <div class="error"></div>
+                </div>
+                <div class="form__group">
+                  <input
+                    type="password"
+                    class="form__input"
+                    placeholder="Password"
+                    name="password"
+                    id="password"
+                  />
+                  <label for="password" class="form__label">Password</label>
+                  <div class="error"></div>
+                </div>
+                <div class="form__group">
+                  <input
+                    type="password"
+                    class="form__input"
+                    placeholder="Password Confirmation"
+                    id="passwordTwo"
+                    name="passwordTwo"
+                  />
+                  <label for="passwordTwo" class="form__label"
+                    >Password Confirmation</label
+                  >
+                  <div class="error"></div>
+                </div>
+
+                <div class="center margin-bottom">
+                  <a href="./index.html">
+                    <button type="submit" class="btn btn-login btn-green lg">
+                      Sign-Up
+                    </button></a
+                  >
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </body>
+  <script src="./js/validation.js"></script>
+
   <script src="./js/index.js"></script>
 </html>

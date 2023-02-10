@@ -205,17 +205,23 @@
                     ></ion-icon>
                   </div>
 
-                  <form action="">
+                  <form action="" id="formLogin">
                     <h2>Login</h2>
 
                     <div class="inputbox">
                       <ion-icon name="mail-outline"></ion-icon>
-                      <input type="email" required />
+                      <input type="text" id="emailLogin" />
                       <label for="email">Email</label>
+                      <div class="error"></div>
                     </div>
                     <div class="inputbox">
                       <ion-icon name="lock-closed-outline"></ion-icon>
-                      <input type="password" name="password" id="" required />
+                      <input
+                        type="password"
+                        name="password"
+                        id="passwordLogin"
+                      />
+                      <div class="error"></div>
                       <label for="password">Password</label>
                     </div>
                     <div class="forget">
@@ -226,11 +232,12 @@
                     </div>
                     <div class="center marginTop-sm">
                       <a href="#" class="btn btn-login btn-green lg">Login</a>
+                      
                     </div>
                     <div class="register">
                       <p>
                         Don't have an account
-                        <a href="./sign-up.html">Register</a>
+                        <a href="./sign-up.html" type="submit">Register</a>
                       </p>
                     </div>
                   </form>
@@ -864,7 +871,6 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
-    
   </body>
   <script src="./js/index.js"></script>
 </html>

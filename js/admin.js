@@ -70,7 +70,6 @@ recently.forEach((blog) => {
 });
 
 recentAuth.forEach((rec) => {
-  // rec.innerHTML = recentFunc();
   console.log(rec);
 });
 Query.forEach((query, index) => {
