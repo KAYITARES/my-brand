@@ -124,6 +124,36 @@
   }
 }
 @media (max-width: 768px) {
+  .im-overlay {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .im-overlay::after {
+    background: #000000e6;
+  }
+
+  .project-img .title-port p {
+    text-align: left;
+  }
+  .cont-right-bg {
+    padding: 2rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .project-img .proj-exp {
+    position: relative;
+    background-color: transparent;
+    left: 0;
+  }
+  .project-img .skills-work {
+    position: relative;
+  }
+  .project-img .title-port {
+    position: relative;
+  }
   .content-container {
     display: flex;
     flex-direction: column;
@@ -186,6 +216,9 @@
   /* .group {
     padding: 1.2rem 1.8rem;
   } */
+  .right-side {
+    padding: 0;
+  }
   .skill-img-container {
     display: flex;
     flex-wrap: wrap;
