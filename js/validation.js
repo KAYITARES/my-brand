@@ -60,24 +60,3 @@ const validateInputs = () => {
     setSuccess(passwordTwo);
   }
 };
-
-//loginForm validation
-const formLogin = document.getElementById("formLogin");
-const emailLogin = document.getElementById("emailLogin");
-const passwordLogin = document.getElementById("passwordLogin");
-
-formLogin.addEventListener("submit", () => {
-  e.preventDefault();
-  loginValidInput();
-});
-const loginValidInput = () => {
-  const email = emailLogin.value;
-  const password = passwordLogin.value;
-  if (email === "") {
-    setError(emailLogin, "Email is required");
-  } else if (!isValidEmail(emailLogin)) {
-    setError(email, "Provide a valid email address");
-  } else {
-    setSuccess(email);
-  }
-};

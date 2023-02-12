@@ -356,7 +356,7 @@ main .recent-blog a {
   margin-bottom: 0rem;
 }
 .addArticles .form__input {
-  background: var(--color-primary);
+  background: #073263;
   width: 100%;
   color: #fff;
   padding: 0.8rem 2rem;

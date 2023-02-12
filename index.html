@@ -208,36 +208,48 @@
                   <form action="" id="formLogin">
                     <h2>Login</h2>
 
-                    <div class="inputbox">
-                      <ion-icon name="mail-outline"></ion-icon>
-                      <input type="text" id="emailLogin" />
-                      <label for="email">Email</label>
+                    <div class="form__group">
+                      <input
+                        type="text"
+                        class="form__input"
+                        placeholder="Email"
+                        name="email"
+                        id="emailLogin"
+                      />
+                      <label for="email" class="form__label">Email</label>
                       <div class="error"></div>
                     </div>
-                    <div class="inputbox">
-                      <ion-icon name="lock-closed-outline"></ion-icon>
+                    <div class="form__group">
                       <input
                         type="password"
+                        class="form__input"
+                        placeholder="Password"
                         name="password"
                         id="passwordLogin"
                       />
+                      <label for="password" class="form__label">Password</label>
                       <div class="error"></div>
-                      <label for="password">Password</label>
                     </div>
-                    <div class="forget">
+                    <!-- <div class="forget">
                       <label for="">
                         <input type="checkbox" />Remember Me
                         <a href="#">Forget Password</a>
                       </label>
-                    </div>
-                    <div class="center marginTop-sm">
-                      <a href="#" class="btn btn-login btn-green lg">Login</a>
-                      
+                    </div> -->
+                    <div class="center margin-bottom">
+                      <a href="./index.html">
+                        <button
+                          type="submit"
+                          class="btn btn-login btn-green lg"
+                        >
+                          Login
+                        </button></a
+                      >
                     </div>
                     <div class="register">
                       <p>
                         Don't have an account
-                        <a href="./sign-up.html" type="submit">Register</a>
+                        <a href="./sign-up.html">Register</a>
                       </p>
                     </div>
                   </form>
@@ -297,8 +309,13 @@
                 to improve my coding abilities.
               </p>
               <p>Here are some current technologies I've worked with:</p>
-              <div class="marginTop-sm">
-                <a href="#" class="btn btn-login">Download my CV</a>
+              <div class="marginTop-sm down-cent">
+                <a
+                  href="./images/cynthia-Kayitare cv.pdf"
+                  class="btn btn-login"
+                  download=""
+                  >Download my CV</a
+                >
               </div>
             </div>
             <div class="about-image">
@@ -871,6 +888,7 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+    <script defer src="./js/loginVal.js"></script>
+    <script src="./js/index.js"></script>
   </body>
-  <script src="./js/index.js"></script>
 </html>
