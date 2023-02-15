@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="./style/index.css" />
     <link rel="stylesheet" href="./style/adminDasboard.css" />
+    <!-- <link rel="stylesheet" href="./style/preload.css" /> -->
   </head>
   <body>
     <div class="container">
@@ -118,7 +119,7 @@
           </div>
           <div class="addArticles">
             <h2>Add Blogs</h2>
-            <form action="" class="fom">
+            <form action="" class="fom" id="addFormBlog">
               <div class="title-auth">
                 <div class="form__group">
                   <input
@@ -126,9 +127,9 @@
                     class="form__input"
                     placeholder="Blog Title"
                     id="blogTitle"
-                    required=""
                   />
                   <label for="blogTitle" class="form__label">Blog Title</label>
+                  <div class="error"></div>
                 </div>
                 <div class="form__group">
                   <input
@@ -136,11 +137,11 @@
                     class="form__input"
                     placeholder="Blog Author"
                     id="blogAuthor"
-                    required=""
                   />
                   <label for="blogAuthor" class="form__label"
                     >Blog Author</label
                   >
+                  <div class="error"></div>
                 </div>
               </div>
 
@@ -150,10 +151,12 @@
                     type="file"
                     class="form__input"
                     placeholder="Blog Images"
-                    id="blogImage"
-                    required=""
+                    id="file"
+                    onchange="return fileValidation()"
                   />
                   <label for="blogImage" class="form__label">Blog Image</label>
+                  <div id="imagePreview"></div>
+                  <div class="error"></div>
                 </div>
                 <div class="form__group">
                   <input
@@ -161,12 +164,12 @@
                     class="form__input"
                     placeholder="Blog Published Date"
                     id="blogDate"
-                    required=""
                     class="date-width"
                   />
                   <label for="blogDate" class="form__label"
                     >Blog Published Date</label
                   >
+                  <div class="error"></div>
                 </div>
               </div>
 
@@ -179,17 +182,26 @@
                   placeholder="Type Summary"
                 ></textarea
                 ><label for="message" class="form__label">Type Summary</label>
+                <div class="error"></div>
               </div>
               <div class="form__group">
                 <textarea
                   name="blogDescription"
-                  id="blogSummary"
+                  id="blogDescription"
                   rows="2"
                   class="form__input"
                   placeholder="blogDescription"
                 ></textarea
                 ><label for="blogDescription" class="form__label"
                   >Blog Description"</label
+                >
+                <div class="error"></div>
+              </div>
+              <div class="center margin-bottom">
+                <a href="./index.html">
+                  <button type="submit" class="btn btn-login btn-green lg">
+                    Publish
+                  </button></a
                 >
               </div>
             </form>
@@ -283,6 +295,7 @@
         </div>
       </div>
     </div>
+    <script defer src="./js/adblogValidation.js"></script>
     <script src="./js/queries.js"></script>
     <script src="./js/blogs.js"></script>
 

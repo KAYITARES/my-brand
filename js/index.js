@@ -59,15 +59,15 @@ allLinks.forEach(function (link) {
   });
 });
 
-let login = document.querySelector(".loginFunctDisplay");
-let modal = document.querySelector(".modal");
-let homecont = document.querySelector("#home");
-let close = document.querySelector(".close-icon");
-login.addEventListener("click", () => {
-  homecont.classList.add("hidden");
-  modal.classList.add("show");
-});
-close.addEventListener("click", () => {
-  homecont.classList.remove("hidden");
-  modal.classList.remove("show");
-});
+// let login = document.querySelector(".loginFunctDisplay");
+// let modal = document.querySelector(".modal");
+// let homecont = document.querySelector("#home");
+// let close = document.querySelector(".close-icon");
+// login.addEventListener("click", () => {
+//   homecont.classList.add("hidden");
+//   modal.classList.add("show");
+// });
+// close.addEventListener("click", () => {
+//   homecont.classList.remove("hidden");
+//   modal.classList.remove("show");
+// });

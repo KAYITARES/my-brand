@@ -42,9 +42,7 @@
 
             <ul class="nav-links">
               <li>
-                <a href="./index.html" class="nav-link navz">
-                  <span>01. </span>Home</a
-                >
+                <a href="#home" class="nav-link navz"> <span>01. </span>Home</a>
               </li>
 
               <li>
@@ -53,8 +51,8 @@
                 >
               </li>
 
-              <a href="./login.html" class="btn btn-login loginFunctDisplay"
-                >Login</a
+              <a href="./sign-up.html" class="btn btn-login loginFunctDisplay"
+                >Sign-Up</a
               >
             </ul>
           </nav>
@@ -181,87 +179,70 @@
               </li>
             </ul>
           </div>
+          <div class="modal">
+            <section>
+              <div class="form-box">
+                <div class="form-value">
+                  <div class="close-icon">
+                    <ion-icon
+                      name="close-circle-outline"
+                      class="close-login-btn"
+                    ></ion-icon>
+                  </div>
 
-          <section>
-            <div class="form-box">
-              <div class="form-value">
-                <div class="close-icon">
-                  <ion-icon
-                    name="close-circle-outline"
-                    class="close-login-btn"
-                  ></ion-icon>
+                  <form action="" id="formLogin">
+                    <h2 style="margin-bottom: 1.8rem">Login</h2>
+
+                    <div class="form__group">
+                      <input
+                        type="text"
+                        class="form__input"
+                        placeholder="Email"
+                        name="email"
+                        id="emailLogin"
+                      />
+                      <label for="email" class="form__label">Email</label>
+                      <div class="error"></div>
+                    </div>
+                    <div class="form__group">
+                      <input
+                        type="password"
+                        class="form__input"
+                        placeholder="Password"
+                        name="password"
+                        id="passwordLogin"
+                      />
+                      <label for="password" class="form__label">Password</label>
+                      <div class="error"></div>
+                    </div>
+                    <!-- <div class="forget">
+                        <label for="">
+                          <input type="checkbox" />Remember Me
+                          <a href="#">Forget Password</a>
+                        </label>
+                      </div> -->
+                    <div class="center margin-bottom">
+                      <a href="./index.html">
+                        <button
+                          type="submit"
+                          class="btn btn-login btn-green lg"
+                        >
+                          Login
+                        </button></a
+                      >
+                    </div>
+                    <div class="register">
+                      <p>
+                        Don't have an account
+                        <a href="./sign-up.html">Register</a>
+                      </p>
+                    </div>
+                  </form>
                 </div>
-
-                <form action="" id="formSignUp">
-                  <h2 style="margin-bottom: 1.8rem">Sign-Up</h2>
-
-                  <div class="form__group">
-                    <input
-                      type="text"
-                      class="form__input"
-                      placeholder="Full name"
-                      id="name"
-                      name="name"
-                    />
-
-                    <label for="name" class="form__label">Full Name</label>
-                    <div class="error"></div>
-                  </div>
-                  <div class="form__group">
-                    <input
-                      type="text"
-                      class="form__input"
-                      placeholder="Email"
-                      id="email"
-                      name="email"
-                    />
-                    <label for="email" class="form__label">Email</label>
-                    <div class="error"></div>
-                  </div>
-                  <div class="form__group">
-                    <input
-                      type="password"
-                      class="form__input"
-                      placeholder="Password"
-                      name="password"
-                      id="password"
-                    />
-                    <label for="password" class="form__label">Password</label>
-                    <div class="error"></div>
-                  </div>
-                  <div class="form__group">
-                    <input
-                      type="password"
-                      class="form__input"
-                      placeholder="Password Confirmation"
-                      id="passwordTwo"
-                      name="passwordTwo"
-                    />
-                    <label for="passwordTwo" class="form__label"
-                      >Password Confirmation</label
-                    >
-                    <div class="error"></div>
-                  </div>
-
-                  <div class="center margin-bottom">
-                    <button
-                      id="signUp"
-                      type="submit"
-                      class="btn btn-login btn-green lg"
-                    >
-                      Sign-Up
-                    </button>
-                  </div>
-                  <div class="register">
-                    <p>
-                      Already have an account
-                      <a href="./login.html">Sign-In</a>
-                    </p>
-                  </div>
-                </form>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
+
           <div class="email-link">
             <a href="malito:kacynthian@gmail.com" class="email">
               kacynthian@gmail.com
