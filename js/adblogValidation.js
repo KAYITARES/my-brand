@@ -5,6 +5,8 @@ const blogImage = document.getElementById("blogImage");
 const blogDate = document.getElementById("blogDate");
 const blogSummary = document.getElementById("blogSummary");
 const blogDescription = document.getElementById("blogDescription");
+const blogMainTitle = document.getElementById("blogMainTitle");
+const blog = document.getElementById("blog");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -27,6 +29,7 @@ const setError = (element, message) => {
 
 const validateInputs = () => {
   const blogTitleValue = blogTitle.value;
+  const blogMainTitleValue = blogMainTitle.value;
   const blogAuthorValue = blogAuthor.value;
   const blogImageValue = blogImage.value;
   const blogDateValue = blogDate.value;
@@ -36,6 +39,11 @@ const validateInputs = () => {
     setError(blogTitle, "blog Title is required");
   } else {
     setSuccess(blogTitle);
+  }
+  if (blogMainTitleValue == "") {
+    setError(blogMainTitle, "blog Main Title is required");
+  } else {
+    setSuccess(blogMainTitle);
   }
   if (blogAuthorValue == "") {
     setError(blogAuthor, "(blog Author is required");
@@ -77,3 +85,24 @@ const validateInputs = () => {
     setSuccess(blogDescription);
   }
 };
+
+const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+
+function saveBlogs() {
+  let blog = {};
+
+  blog.blogTitle = blogTitle.value;
+  blog.blogMainTitle = blogMainTitle.value;
+  blog.blogAuthor = blogAuthor.value;
+  blog.blogDate = blogDate.value;
+  blog.blogImage = blogImage.value;
+  // console.log(this.files);
+
+  blog.blogSummary = blogSummary.value;
+  blog.blogDescription = blogDescription.value;
+  blogs.push(blog);
+  alert("Blogs Successfuly Created!");
+  localStorage.setItem("blogs", JSON.stringify(blogs));
+}
+
+blog.onclick = saveBlogs;

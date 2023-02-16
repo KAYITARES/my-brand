@@ -133,12 +133,15 @@
                   <input
                     type="text"
                     class="form__input"
-                    placeholder="Blog Title"
-                    id="blogTitle"
+                    placeholder="Blog Main Title"
+                    id="blogMainTitle"
                   />
-                  <label for="blogTitle" class="form__label">Blog Title</label>
+                  <label for="blogTitle" class="form__label"
+                    >Blog Main Title</label
+                  >
                   <div class="error"></div>
                 </div>
+
                 <div class="form__group">
                   <input
                     type="text"
@@ -153,6 +156,29 @@
                 </div>
               </div>
 
+              <div class="form__group">
+                <input
+                  type="text"
+                  class="form__input"
+                  placeholder="Blog Title"
+                  id="blogTitle"
+                />
+                <label for="blogTitle" class="form__label">Blog Title</label>
+                <div class="error"></div>
+              </div>
+              <div class="form__group">
+                <textarea
+                  name="blogSummary"
+                  id="blogSummary"
+                  rows="2"
+                  class="form__input"
+                  placeholder="Type Short Description"
+                ></textarea
+                ><label for="message" class="form__label"
+                  >Type Short Description</label
+                >
+                <div class="error"></div>
+              </div>
               <div class="title-auth">
                 <div class="form__group">
                   <input
@@ -179,18 +205,6 @@
                   <div class="error"></div>
                 </div>
               </div>
-
-              <div class="form__group">
-                <textarea
-                  name="blogSummary"
-                  id="blogSummary"
-                  rows="2"
-                  class="form__input"
-                  placeholder="Type Summary"
-                ></textarea
-                ><label for="message" class="form__label">Type Summary</label>
-                <div class="error"></div>
-              </div>
               <div class="form__group">
                 <textarea
                   name="blogDescription"
@@ -200,13 +214,17 @@
                   placeholder="blogDescription"
                 ></textarea
                 ><label for="blogDescription" class="form__label"
-                  >Blog Description"</label
+                  >Blog Description</label
                 >
                 <div class="error"></div>
               </div>
               <div class="center margin-bottom">
                 <a href="./index.html">
-                  <button type="submit" class="btn btn-login btn-green lg">
+                  <button
+                    type="submit"
+                    class="btn btn-login btn-green lg"
+                    id="blog"
+                  >
                     Publish
                   </button></a
                 >

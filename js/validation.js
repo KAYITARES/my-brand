@@ -12,15 +12,15 @@ form.addEventListener("submit", (e) => {
 
 users = JSON.parse(localStorage.getItem("users")) || [];
 
-const verifyData = () => {
-  const targetUser = users.find((user) => user.email == email.value);
-  if (targetUser) {
-    alert("User already exist");
-  } else if (!targetUser) {
-    saveUser();
-    alert("user successfuly created");
-  }
-};
+// const verifyData = () => {
+//   const targetUser = users.find((user) => user.email == email.value);
+//   if (targetUser) {
+//     alert("User already exist");
+//   } else if (!targetUser) {
+//     saveUser();
+//     alert("user successfuly created");
+//   }
+// };
 
 const setSuccess = (element) => {
   const inputControl = element.parentElement;
@@ -90,6 +90,7 @@ const saveUser = () => {
   } else {
     user.email = emailValue;
     users.push(user);
+    alert("user successfully created");
   }
 
   localStorage.setItem("users", JSON.stringify(users));
