@@ -25,64 +25,54 @@ const setError = (element, message) => {
   inputControl.classList.remove("success");
 };
 
-function fileValidation() {
-  var fileInput = document.getElementById("file");
-
-  var filePath = fileInput.value;
-  if (filePath == "") {
-    alert("fill blogImage");
-  }
-  // Allowing file type
-  var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-
-  if (!allowedExtensions.exec(filePath)) {
-    alert("Invalid file type");
-    fileInput.value = "";
-    return false;
-  } else {
-    // Image preview
-    if (fileInput.files && fileInput.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        document.getElementById("imagePreview").innerHTML =
-          '<img src="' + e.target.result + '"/>';
-      };
-
-      reader.readAsDataURL(fileInput.files[0]);
-    }
-  }
-}
-
 const validateInputs = () => {
   const blogTitleValue = blogTitle.value;
   const blogAuthorValue = blogAuthor.value;
-
+  const blogImageValue = blogImage.value;
   const blogDateValue = blogDate.value;
   const blogSummaryValue = blogSummary.value;
   const blogDescriptionValue = blogDescription.value;
   if (blogTitleValue == "") {
-    setError(blogTitle, "blogTitle is required");
+    setError(blogTitle, "blog Title is required");
   } else {
     setSuccess(blogTitle);
   }
   if (blogAuthorValue == "") {
-    setError(blogAuthor, "(blogAuthor is required");
+    setError(blogAuthor, "(blog Author is required");
   } else {
     setSuccess(blogAuthor);
   }
+  if (blogImageValue == "") {
+    setError(blogImage, "(blog Image is required");
+  } else {
+    let Extension = blogImageValue
+      .substring(blogImageValue.lastIndexOf(".") + 1)
+      .toLowerCase();
+    if (
+      Extension == "gif" ||
+      Extension == "png" ||
+      Extension == "bmp" ||
+      Extension == "jpeg" ||
+      Extension == "jpg"
+    ) {
+      setSuccess(blogImage);
+    } else {
+      alert("Photo only allows file types of GIF, PNG, JPG, JPEG and BMP. ");
+    }
+  }
 
   if (blogDateValue == "") {
-    setError(blogDate, "blogDate is required");
+    setError(blogDate, "blog Date is required");
   } else {
     setSuccess(blogDate);
   }
   if (blogSummaryValue == "") {
-    setError(blogSummary, "blogSummary is required");
+    setError(blogSummary, "blog Short description is required");
   } else {
     setSuccess(blogSummary);
   }
   if (blogDescriptionValue == "") {
-    setError(blogDescription, "blogDescription is required");
+    setError(blogDescription, "blog Description is required");
   } else {
     setSuccess(blogDescription);
   }

@@ -363,7 +363,7 @@ main .recent-blog a {
   margin-bottom: 0rem;
 }
 .addArticles .form__input {
-  background: rgb(0, 122, 162);
+  background: rgb(105, 171, 193);
   width: 100%;
   color: #fff;
   padding: 0.8rem 2rem;
@@ -389,6 +389,9 @@ main .recent-blog a {
   display: none;
 }
 .recent-queries {
+  display: none;
+}
+.user-dash {
   display: none;
 }
 .right .blogs-anal {

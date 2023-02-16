@@ -4,6 +4,8 @@ const viewArticleLinks = document.querySelector(".viewArticleLink");
 const query = document.querySelector(".recent-queries");
 const addArticles = document.querySelector(".addArticles");
 const queryLinks = document.querySelector(".queryLink");
+const userLinks = document.querySelector(".users");
+const user = document.querySelector(".user-dash");
 // window.onload = function () {
 //   addArticles.remove();
 //   query.style.display = "none";
@@ -12,14 +14,23 @@ addArticleLinks.addEventListener("click", () => {
   addArticles.style.display = "block";
   viewBlogs.style.display = "none";
   query.style.display = "none";
+  user.style.display = "none";
 });
 viewArticleLinks.addEventListener("click", () => {
   viewBlogs.style.display = "block";
   addArticles.style.display = "none";
   query.style.display = "none";
+  user.style.display = "none";
 });
 queryLinks.addEventListener("click", () => {
   query.style.display = "block";
+  viewBlogs.style.display = "none";
+  addArticles.style.display = "none";
+  user.style.display = "none";
+});
+userLinks.addEventListener("click", () => {
+  user.style.display = "block";
+  query.style.display = "none";
   viewBlogs.style.display = "none";
   addArticles.style.display = "none";
 });
@@ -86,4 +97,19 @@ Query.forEach((query, index) => {
 const queryCount = document.querySelectorAll(".queryCount");
 queryCount.forEach((query) => {
   query.innerHTML = Query.length;
+});
+users = JSON.parse(localStorage.getItem("users")) || [];
+// console.log(`THE USER ID ${users.forEach()}`);
+
+users.forEach((user, index) => {
+  const tr = document.createElement("tr");
+  const trContent = `
+    <td>${index + 1}</td>
+    <td>${user?.firstName}</td>
+    <td>${user?.lastName}</td>
+    <td>${user?.email}</td>
+    `;
+
+  tr.innerHTML = trContent;
+  document.querySelector("table .user-signup").appendChild(tr);
 });

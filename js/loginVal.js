@@ -3,10 +3,12 @@
 const formLogin = document.getElementById("formLogin");
 const emailLogin = document.getElementById("emailLogin");
 const passwordLogin = document.getElementById("passwordLogin");
+const login = document.getElementById("loginButton");
 
 formLogin.addEventListener("submit", (e) => {
   e.preventDefault();
   loginValidInput();
+  // signIn();
 });
 
 const setSuccess = (element) => {
@@ -43,3 +45,16 @@ const loginValidInput = () => {
     setError(passwordLogin, "Passwprd is required");
   }
 };
+
+const users = JSON.parse(localStorage.getItem("users")) || [];
+function signIn() {
+  const targetUser = users.find((user) => user.email == emailLogin.value);
+  if (targetUser && targetUser.password == passwordLogin.value) {
+    localStorage.setItem("currentUser", JSON.stringify(targetUser));
+    window.location.href = "./adminDashboard.html";
+  } else if (targetUser && targetUser.password != passwordLogin.value) {
+    alert("Invalid email or password!");
+  }
+}
+
+login.onclick = signIn;
