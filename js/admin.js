@@ -83,12 +83,13 @@ recently.forEach((blog) => {
 recentAuth.forEach((rec) => {
   console.log(rec);
 });
-Query.forEach((query, index) => {
+const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+contacts.forEach((query, index) => {
   const tr = document.createElement("tr");
   const trContent = `
   <td>${index + 1}</td>
-  <td>${query.name}</td>
-  <td>${query.email}</td>
+  <td>${query.queryfullName}</td>
+  <td>${query.queryEmail}</td>
   <td style="color: var(--color-primary)">view</td>
                   `;
   tr.innerHTML = trContent;
@@ -96,7 +97,7 @@ Query.forEach((query, index) => {
 });
 const queryCount = document.querySelectorAll(".queryCount");
 queryCount.forEach((query) => {
-  query.innerHTML = Query.length;
+  query.innerHTML = contacts.length;
 });
 users = JSON.parse(localStorage.getItem("users")) || [];
 // console.log(`THE USER ID ${users.forEach()}`);

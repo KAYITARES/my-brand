@@ -71,3 +71,23 @@ allLinks.forEach(function (link) {
 //   homecont.classList.remove("hidden");
 //   modal.classList.remove("show");
 // });
+
+const queryfullName = document.querySelector("#name");
+const queryEmail = document.querySelector("#email");
+const queryMessage = document.querySelector("#message");
+const contactButton = document.querySelector("#contactButton");
+const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+
+function saveContacts() {
+  let contact = {};
+
+  contact.queryfullName = queryfullName.value;
+  contact.queryEmail = queryEmail.value;
+  contact.queryMessage = queryMessage.value;
+
+  contacts.push(contact);
+  alert("Message Successfuly Sent!");
+  localStorage.setItem("contacts", JSON.stringify(contacts));
+}
+
+contactButton.onclick = saveContacts;
