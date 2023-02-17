@@ -55,13 +55,13 @@ themeToggler.addEventListener("click", () => {
   themeToggler.querySelector("span:nth-child(1)").classList.toggle("active");
   themeToggler.querySelector("span:nth-child(2)").classList.toggle("active");
 });
-
-Blogs.forEach((blog, index) => {
+blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+blogs.forEach((blog, index) => {
   const tr = document.createElement("tr");
   const trContent = `<td>${index + 1}</td>
-                     <td>${blog.blogAuth}</td>
+                     <td>${blog.blogAuthor}</td>
                      <td>${blog.blogTitle}</td>
-                     <td>${blog.publishedDate}</td>
+                     <td>${blog.blogDate}</td>
                      <td style="color: var(--color-primary)">view</td>
                      <td style="color: var(--color-success)">update</td>
                      <td style="color: var(--color-danger)">Delete</td>
@@ -70,10 +70,10 @@ Blogs.forEach((blog, index) => {
   document.querySelector("table .blogu").appendChild(tr);
 });
 const publisherCount = (document.querySelector(".publisher-count").innerHTML =
-  Blogs.length);
+  blogs.length);
 
 const recentAuth = document.querySelectorAll(".recentAuth");
-const recently = Blogs.slice(-3).reverse();
+const recently = blogs.slice(-3).reverse();
 
 recently.forEach((blog) => {
   recentAuth.innerText = blog.blogAuth;
