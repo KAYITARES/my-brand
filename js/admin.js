@@ -90,7 +90,8 @@ contacts.forEach((query, index) => {
   <td>${index + 1}</td>
   <td>${query.queryfullName}</td>
   <td>${query.queryEmail}</td>
-  <td style="color: var(--color-primary)">view</td>
+  <td>${query.queryMessage}</td>
+
                   `;
   tr.innerHTML = trContent;
   document.querySelector("table .quer-message").appendChild(tr);
