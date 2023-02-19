@@ -23,13 +23,16 @@ window.addEventListener("scroll", () => {
 const hamburgerWrapper = document.querySelector(".hamburger-wrapper");
 const navLinks = document.querySelector(".nav-links");
 const headerEl = document.querySelector(".nav");
+const body = document.querySelector("body");
 const x = window.matchMedia("(max-width:870px)");
 // const y = window.matchMedia("(min-width:871px)");
 hamburgerWrapper.addEventListener("click", () => {
   // hamburgerWrapper.classList.toggle("active");
   // hamburgerWrapper.classList.toggle("active");
   hamburgerWrapper.classList.toggle("active");
+
   navLinks.classList.toggle("active");
+  // body.classList.toggle("blur");
 });
 
 //////////////////////////////////////////////////////////
