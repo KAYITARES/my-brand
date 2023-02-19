@@ -25,13 +25,9 @@ const navLinks = document.querySelector(".nav-links");
 const headerEl = document.querySelector(".nav");
 hamburgerWrapper.addEventListener("click", () => {
   // hamburgerWrapper.classList.toggle("active");
-  let x = window.matchMedia("(max-width: 870px)");
-  let y = window.matchMedia("(min-width: 871px)");
-  let z = hamburgerWrapper.classList.toggle("active");
-  if (z) {
+  // hamburgerWrapper.classList.toggle("active");
+  if (hamburgerWrapper.classList.toggle("active")) {
     navLinks.style.display = "flex";
-  } else if (!z) {
-    navLinks.style.display = "none";
   }
 });
 
@@ -56,7 +52,8 @@ allLinks.forEach(function (link) {
     }
     //close mobile navigation
     if (link.classList.contains("nav-link"))
-      hamburgerWrapper.classList.toggle("active");
+      hamburgerWrapper.classList.remove("active");
+    navLinks.style.display = "none";
   });
 });
 

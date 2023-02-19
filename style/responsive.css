@@ -98,9 +98,15 @@
     transition: all 0.5s;
     background-color: var(--color-grey);
     display: none;
+    animation: showMenu 0.4s ease forwards;
     /* opacity: 0;
       pointer-events: none;
       visibility: hidden; */
+  }
+  @keyframes showMenu {
+    to {
+      right: 0;
+    }
   }
 
   /* .nav-open .nav-links {
