@@ -84,7 +84,7 @@
   }
 
   .nav-links {
-    display: flex;
+    /* display: flex; */
     position: absolute;
     flex-direction: column;
     top: 0;
@@ -133,32 +133,66 @@
     background: #000000e6;
   }
 
-  .project-img .title-port p {
+  .project-img p {
     text-align: left;
   }
   .cont-right-bg {
-    padding: 2rem;
+    padding: 1.5rem;
     position: absolute;
+    height: 100%;
+    width: 100%;
     bottom: 0;
     left: 0;
   }
-
   .project-img .proj-exp {
     position: relative;
     background-color: transparent;
     left: 0;
+    padding: 0;
+    font-size: 1.8rem;
+    height: 80%;
+    width: 100%;
+    /* background-color: aqua; */
+  }
+  .project-img .title-port {
+    right: 2%;
   }
   .project-img .skills-work {
     position: relative;
+    bottom: 0;
   }
-  .project-img .title-port {
+  .project-img .icons {
     position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .skills-work ul {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    justify-content: flex-end;
+    text-align: right;
+    /* background-color: green; */
+  }
+  .project-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* display: flex;
+    align-items: flex-start; */
+    /* background-color: aliceblue; */
   }
   .content-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 
+    position: relative;
+  }
+  .title-port {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     position: relative;
   }
   .cont-division {
@@ -196,29 +230,29 @@
     transform: translate(-50%, -50%);
     z-index: 10;
   }
-  /* .image-container {
-      display: none;
-    } */
-  /* .content {
-      width: 80%;
-    } */
 }
-/* /* @media (max-width: 400px) {
-    .nav-logo h3 {
-      font-size: 1.5rem;
-    }
-    .nav-logo .logo {
-      width: 2.4rem;
-      height: 2.4rem;
-    }
-  } */
+@media (max-width: 560px) {
+  .im-overlay {
+    height: 30rem;
+  }
+  .project-img {
+    height: 30rem;
+  }
+  .proj-exp {
+    background-color: red;
+  }
+}
 @media (max-width: 470px) {
-  /* .group {
-    padding: 1.2rem 1.8rem;
-  } */
+  .im-overlay {
+    height: 40rem;
+  }
+  .project-img {
+    height: 40rem;
+  }
   .right-side {
     padding: 0;
   }
+
   .skill-img-container {
     display: flex;
     flex-wrap: wrap;
@@ -239,5 +273,10 @@
     margin-bottom: 3rem;
     color: var(--color-text);
     letter-spacing: 1.45px;
+  }
+}
+@media (max-width: 365px) {
+  .cont-right-bg {
+    padding: 1rem;
   }
 }

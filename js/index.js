@@ -24,16 +24,17 @@ const hamburgerWrapper = document.querySelector(".hamburger-wrapper");
 const navLinks = document.querySelector(".nav-links");
 const headerEl = document.querySelector(".nav");
 hamburgerWrapper.addEventListener("click", () => {
-  if (x.matches) {
-    if (hamburgerWrapper.classList.toggle("active")) {
-      navLinks.style.display = "flex";
-    } else if (hamburgerWrapper) {
-      navLinks.style.display = "none";
-    }
+  // hamburgerWrapper.classList.toggle("active");
+  let x = window.matchMedia("(max-width: 870px)");
+  let y = window.matchMedia("(min-width: 871px)");
+  let z = hamburgerWrapper.classList.toggle("active");
+  if (z) {
+    navLinks.style.display = "flex";
+  } else if (!z) {
+    navLinks.style.display = "none";
   }
 });
 
-var x = window.matchMedia("(max-width: 870px)");
 //////////////////////////////////////////////////////////
 // sroll smooth
 ///////////////////////////////////////////////////////////
