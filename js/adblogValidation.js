@@ -85,21 +85,32 @@ const validateInputs = () => {
     setSuccess(blogDescription);
   }
 };
+let Image;
+document.querySelector("#blogImage").addEventListener("change", function () {
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    localStorage.setItem("image", reader.result);
+  });
+
+  reader.readAsDataURL(this.files[0]);
+});
 
 const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
 
 function saveBlogs() {
+  Image = localStorage.getItem("image");
   let blog = {};
-
+  blog.blogImage = Image;
   blog.blogTitle = blogTitle.value;
   blog.blogMainTitle = blogMainTitle.value;
   blog.blogAuthor = blogAuthor.value;
   blog.blogDate = blogDate.value;
-  blog.blogImage = blogImage.value;
+  // blog.blogImage = blogImage.value;
   // console.log(this.files);
 
   blog.blogSummary = blogSummary.value;
   blog.blogDescription = blogDescription.value;
+
   blogs.push(blog);
   alert("Blogs Successfuly Created!");
   localStorage.setItem("blogs", JSON.stringify(blogs));

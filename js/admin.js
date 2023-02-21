@@ -85,6 +85,7 @@ recentAuth.forEach((rec) => {
 });
 const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
 contacts.forEach((query, index) => {
+  document.querySelector("table .quer-message").appendChild(tr);
   const tr = document.createElement("tr");
   const trContent = `
   <td>${index + 1}</td>
@@ -94,7 +95,6 @@ contacts.forEach((query, index) => {
 
                   `;
   tr.innerHTML = trContent;
-  document.querySelector("table .quer-message").appendChild(tr);
 });
 const queryCount = document.querySelectorAll(".queryCount");
 queryCount.forEach((query) => {
