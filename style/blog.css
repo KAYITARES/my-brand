@@ -47,26 +47,32 @@ html {
   text-transform: uppercase;
   transition: all 0.3s;
 }
+.search-form {
+  position: relative;
+}
 .search input {
   padding: 9px 10px;
+  width: 100%;
+  /* background-color: green; */
   min-width: 35rem;
-  position: relative;
 }
 .search-form svg {
   position: absolute;
-  bottom: 35%;
+  top: 20%;
   /* background-color: red; */
-  right: 14%;
+  right: 4%;
 }
 .icon-seach {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 1.5rem;
+
   /* justify-content: space-between; */
 }
 .blog_icons-links {
   display: flex;
+
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -241,5 +247,8 @@ html {
   .blog-links {
     margin-left: 2rem;
     gap: 1rem;
+  }
+  .blog_icons-links {
+    width: 100%;
   }
 }
