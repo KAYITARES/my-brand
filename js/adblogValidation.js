@@ -10,10 +10,11 @@ const blog = document.getElementById("blog");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  validateInputs();
 });
 const setSuccess = (element) => {
   const inputControl = element.parentElement;
+
+  console.log("my element ..." + element.parentElement);
   const errorDisplayMessage = inputControl.querySelector(".error");
   errorDisplayMessage.innerText = "";
   inputControl.classList.add("success");
@@ -35,24 +36,73 @@ const validateInputs = () => {
   const blogDateValue = blogDate.value;
   const blogSummaryValue = blogSummary.value;
   const blogDescriptionValue = blogDescription.value;
-  if (blogTitleValue == "") {
-    setError(blogTitle, "blog Title is required");
-  } else {
+  let isValidated = false;
+  if (blogTitleValue != "") {
+    console.log("blog title is not empty");
     setSuccess(blogTitle);
-  }
-  if (blogMainTitleValue == "") {
-    setError(blogMainTitle, "blog Main Title is required");
+
+    isValidated = true;
   } else {
+    console.log("blog title is empty");
+    setError(blogTitle, "blog Title is required");
+    isValidated = false;
+  }
+  if (blogMainTitleValue != "") {
+    console.log("blog main title is not empty");
     setSuccess(blogMainTitle);
-  }
-  if (blogAuthorValue == "") {
-    setError(blogAuthor, "(blog Author is required");
+
+    isValidated = true;
   } else {
+    console.log("blog title is empty");
+    setError(blogMainTitle, "blog Main Title is required");
+    isValidated = false;
+  }
+  if (blogAuthorValue != "") {
+    console.log("blog Author is not empty");
     setSuccess(blogAuthor);
-  }
-  if (blogImageValue == "") {
-    setError(blogImage, "(blog Image is required");
+
+    isValidated = true;
   } else {
+    console.log("blog title is empty");
+    setError(blogAuthor, "blog Author is required");
+    isValidated = false;
+  }
+  if (blogDateValue != "") {
+    console.log("blog Date is not empty");
+    setSuccess(blogDate);
+
+    isValidated = true;
+  } else {
+    console.log("blog Date is empty");
+    setError(blogDate, "blog Date is required");
+    isValidated = false;
+  }
+  if (blogSummaryValue != "") {
+    console.log("blog Summary Value is not empty");
+    setSuccess(blogSummary);
+
+    isValidated = true;
+  } else {
+    console.log("blog Summary is empty");
+    setError(blogSummary, "blog Summary is required");
+    isValidated = false;
+  }
+  if (blogDescriptionValue != "") {
+    console.log("blogDescription Value is not empty");
+    setSuccess(blogDescription);
+
+    isValidated = true;
+  } else {
+    console.log("blogDescription is empty");
+    setError(blogDescription, "blog Description is required");
+    isValidated = false;
+  }
+
+  if (blogImageValue != "") {
+    console.log("blog Image is not empty");
+    // setSuccess(blogImage);
+
+    // isValidated = true;
     let Extension = blogImageValue
       .substring(blogImageValue.lastIndexOf(".") + 1)
       .toLowerCase();
@@ -61,29 +111,32 @@ const validateInputs = () => {
       Extension == "png" ||
       Extension == "bmp" ||
       Extension == "jpeg" ||
-      Extension == "jpg"
+      Extension == "jpg" ||
+      Extension == "webp"
     ) {
       setSuccess(blogImage);
+
+      isValidated = true;
     } else {
-      alert("Photo only allows file types of GIF, PNG, JPG, JPEG and BMP. ");
+      setError(
+        blogImage,
+        "Photo only allows file types of WEBP, GIF, PNG, JPG, JPEG and BMP."
+      );
+
+      isValidated = false;
     }
+  } else {
+    console.log("blog title is empty");
+    setError(blogImage, "blog Image is required");
+    isValidated = false;
   }
 
-  if (blogDateValue == "") {
-    setError(blogDate, "blog Date is required");
-  } else {
-    setSuccess(blogDate);
+  if (isValidated) {
+    console.log(`blog title has no error ${blogTitle}`);
+    // saveBlogs();
   }
-  if (blogSummaryValue == "") {
-    setError(blogSummary, "blog Short description is required");
-  } else {
-    setSuccess(blogSummary);
-  }
-  if (blogDescriptionValue == "") {
-    setError(blogDescription, "blog Description is required");
-  } else {
-    setSuccess(blogDescription);
-  }
+
+  return isValidated;
 };
 let Image;
 document.querySelector("#blogImage").addEventListener("change", function () {
@@ -98,22 +151,26 @@ document.querySelector("#blogImage").addEventListener("change", function () {
 const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
 
 function saveBlogs() {
-  Image = localStorage.getItem("image");
-  let blog = {};
-  blog.blogImage = Image;
-  blog.blogTitle = blogTitle.value;
-  blog.blogMainTitle = blogMainTitle.value;
-  blog.blogAuthor = blogAuthor.value;
-  blog.blogDate = blogDate.value;
-  // blog.blogImage = blogImage.value;
-  // console.log(this.files);
+  const isValid = validateInputs();
+  if (isValid) {
+    Image = localStorage.getItem("image");
+    let blog = {};
+    blog.blogImage = Image;
+    blog.blogTitle = blogTitle.value;
+    blog.blogMainTitle = blogMainTitle.value;
+    blog.blogAuthor = blogAuthor.value;
+    blog.blogDate = blogDate.value;
 
-  blog.blogSummary = blogSummary.value;
-  blog.blogDescription = blogDescription.value;
+    blog.blogSummary = blogSummary.value;
+    blog.blogDescription = blogDescription.value;
 
-  blogs.push(blog);
-  alert("Blogs Successfuly Created!");
-  localStorage.setItem("blogs", JSON.stringify(blogs));
+    blogs.push(blog);
+
+    localStorage.setItem("blogs", JSON.stringify(blogs));
+    alert("Blogs Successfuly Created!");
+  } else {
+    alert("fill well your form");
+  }
 }
 
 blog.onclick = saveBlogs;

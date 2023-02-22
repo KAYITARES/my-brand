@@ -7,7 +7,7 @@ const login = document.getElementById("loginButton");
 
 formLogin.addEventListener("submit", (e) => {
   e.preventDefault();
-  loginValidInput();
+
   // signIn();
 });
 
@@ -33,27 +33,47 @@ const isValidEmail = (email) => {
 const loginValidInput = () => {
   const email = emailLogin.value;
   const password = passwordLogin.value;
-  if (email === "") {
-    setError(emailLogin, "Email is required");
-  } else if (!isValidEmail(email)) {
-    setError(emailLogin, "Provide a valid email address");
-  } else {
-    setSuccess(emailLogin);
-  }
+  let isValidated = false;
 
-  if (password == "") {
-    setError(passwordLogin, "Passwprd is required");
+  if (password != "") {
+    setSuccess(passwordLogin);
+    isValidated = true;
+  } else {
+    setError(passwordLogin, "the password field is empty");
+    isValidated = false;
   }
+  if (email != "") {
+    console.log("the email field is not empty");
+    setSuccess(emailLogin);
+    isValidated = true;
+    if (!isValidEmail(email)) {
+      setError(emailLogin, "Provide a valid email address");
+      isFinite = false;
+    } else {
+      setSuccess(emailLogin);
+      isValidated = true;
+    }
+  } else {
+    console.log("the email field is empty");
+    setError(emailLogin, "the email field is empty");
+    isValidated = false;
+  }
+  return isValidated;
 };
 
 const users = JSON.parse(localStorage.getItem("users")) || [];
 function signIn() {
-  const targetUser = users.find((user) => user.email == emailLogin.value);
-  if (targetUser && targetUser.password == passwordLogin.value) {
-    localStorage.setItem("currentUser", JSON.stringify(targetUser));
-    window.location.href = "./adminDashboard.html";
-  } else if (targetUser && targetUser.password != passwordLogin.value) {
-    alert("Invalid email or password!");
+  const isValid = loginValidInput();
+  if (isValid) {
+    const targetUser = users.find((user) => user.email == emailLogin.value);
+    if (targetUser && targetUser.password == passwordLogin.value) {
+      localStorage.setItem("currentUser", JSON.stringify(targetUser));
+      window.location.href = "./adminDashboard.html";
+    } else if (targetUser && targetUser.password != passwordLogin.value) {
+      alert("Invalid email or password!");
+    }
+  } else {
+    alert("fill well your form");
   }
 }
 

@@ -6,7 +6,7 @@ const passwordTwo = document.getElementById("passwordTwo");
 const submit = document.getElementById("signUp");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  validateInputs();
+  // validateInputs();
   // saveUser();
 });
 
@@ -47,52 +47,82 @@ const validateInputs = () => {
   const emailValue = email.value;
   const passwordValue = password.value;
   const passwordTwoValue = passwordTwo.value;
-  if (fullNameValue == "") {
-    setError(fullName, "fullName is required");
-  } else {
+  let isValidated = false;
+  if (fullNameValue != "") {
     setSuccess(fullName);
-  }
-  if (emailValue === "") {
-    setError(email, "Email is required");
-  } else if (!isValidEmail(emailValue)) {
-    setError(email, "Provide a valid email address");
+    isValidated = true;
   } else {
+    setError(fullName, "fullName is required");
+    isValidated = false;
+  }
+  if (emailValue != "") {
     setSuccess(email);
+    isValidated = true;
+    if (!isValidEmail(emailValue)) {
+      setError(email, "Provide a valid email address");
+      isValidated = false;
+    } else {
+      setSuccess(email);
+      isValidated = true;
+    }
+  } else {
+    setError(email, "email is required");
+    isValidated = false;
   }
 
-  if (passwordValue == "") {
-    setError(password, "Passwprd is required");
-  } else if (passwordValue.length < 8) {
-    setError(password, "Password must be at least 8character");
-  } else {
+  if (passwordValue != "") {
     setSuccess(password);
-  }
-  if (passwordTwoValue == "") {
-    setError(passwordTwo, "Please confirm your password");
-  } else if (passwordValue !== passwordTwoValue) {
-    setError(password, "Password doesn't match");
+    isValidated = true;
+    if (passwordValue.length < 8) {
+      setError(password, "Password must be at least 8 characters");
+      isValidated = false;
+    } else {
+      setSuccess(password);
+      isValidated = true;
+    }
   } else {
-    setSuccess(passwordTwo);
+    setError(password, "Passwprd is required");
   }
+
+  if (passwordTwoValue != "") {
+    setSuccess(passwordTwo);
+    isValidated = true;
+    if (passwordValue !== passwordTwoValue) {
+      setError(passwordTwo, "Password doesn't match");
+      isValidated = false;
+    } else {
+      setSuccess(passwordTwo);
+      isValidated = true;
+    }
+  } else {
+    setError(passwordTwo, "Please confirm your password");
+    isValidated = false;
+  }
+
+  return isValidated;
 };
 const saveUser = () => {
-  let user = {};
-  const fullNameValue = fullName.value;
-  const emailValue = email.value;
-  const passwordValue = password.value;
-  const passwordTwoValue = passwordTwo.value;
-  user.firstName = fullNameValue.split(" ")[0];
-  user.lastName = fullNameValue.split(" ")[1];
-  user.password = passwordValue;
-  user.confirmPassword = passwordTwoValue;
-  if (users.find((user) => user.email == emailValue)) {
-    alert("user already exist");
+  const isValid = validateInputs();
+  if (isValid) {
+    let user = {};
+    const fullNameValue = fullName.value;
+    const emailValue = email.value;
+    const passwordValue = password.value;
+    const passwordTwoValue = passwordTwo.value;
+    user.firstName = fullNameValue.split(" ")[0];
+    user.lastName = fullNameValue.split(" ")[1];
+    user.password = passwordValue;
+    user.confirmPassword = passwordTwoValue;
+    if (users.find((user) => user.email == emailValue)) {
+      alert("user already exist");
+    } else {
+      user.email = emailValue;
+      users.push(user);
+      localStorage.setItem("users", JSON.stringify(users));
+      alert("user successfully created");
+    }
   } else {
-    user.email = emailValue;
-    users.push(user);
-    alert("user successfully created");
+    alert("fill well the form");
   }
-
-  localStorage.setItem("users", JSON.stringify(users));
 };
 submit.onclick = saveUser;
