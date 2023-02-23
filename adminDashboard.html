@@ -105,11 +105,17 @@
               <thead>
                 <tr class="tr-blog">
                   <th>No</th>
+                  <th>Blog Id</th>
+                  <th>Blog Main Title</th>
                   <th>Blog Author</th>
                   <th>Blog Title</th>
-                  <th>Blog ID</th>
-                  <th>Published Date</th>
-                  <th colspan="3">Action</th>
+
+                  <th>Blog Sumary</th>
+                  <!-- <th>Blog Image</th> -->
+                  <th>Blog Date</th>
+                  <th>Blog Description</th>
+
+                  <th colspan="2">Action</th>
                 </tr>
               </thead>
               <tbody class="blogu">
@@ -172,7 +178,7 @@
                     type="number"
                     class="form__input"
                     placeholder="Blog ID"
-                    id="blogId"
+                    id="blogIds"
                   />
                   <label for="blogId" class="form__label">id</label>
                   <div class="error"></div>
@@ -367,13 +373,23 @@
           </div>
           <h1>Update the blogs</h1>
           <form action="" class="fom" id="addFormBlog">
+            <div class="form__group">
+              <input
+                type="number"
+                class="form__input"
+                placeholder="Blog ID"
+                id="blogIdo"
+              />
+              <label for="blogIdo" class="form__label">id</label>
+              <div class="error"></div>
+            </div>
             <div class="title-auth">
               <div class="form__group">
                 <input
                   type="text"
                   class="form__input"
                   placeholder="Blog Main Title"
-                  id="blogMainTitle"
+                  id="blogMainTitles"
                 />
                 <label for="blogTitle" class="form__label"
                   >Blog Main Title</label
@@ -382,12 +398,7 @@
               </div>
 
               <div class="form__group">
-                <input
-                  type="text"
-                  class="form__input"
-                  placeholder="Blog Author"
-                  id="blogAuthor"
-                />
+                <input type="text" class="form__input" id="blogAuthors" />
                 <label for="blogAuthor" class="form__label">Blog Author</label>
                 <div class="error"></div>
               </div>
@@ -398,7 +409,7 @@
                 type="text"
                 class="form__input"
                 placeholder="Blog Title"
-                id="blogTitle"
+                id="blogTitles"
               />
               <label for="blogTitle" class="form__label">Blog Title</label>
               <div class="error"></div>
@@ -406,7 +417,7 @@
             <div class="form__group">
               <textarea
                 name="blogSummary"
-                id="blogSummary"
+                id="blogSummarys"
                 rows="2"
                 class="form__input"
                 placeholder="Type Short Description"
@@ -417,17 +428,17 @@
               <div class="error"></div>
             </div>
             <div class="title-auth">
-              <div class="form__group">
-                <input type="file" class="form__input" id="blogImage" />
+              <!-- <div class="form__group">
+                <input type="file" class="form__input" id="blogImages" />
                 <label for="blogImage" class="form__label">Blog Image</label>
                 <div id="imagePreview"></div>
                 <div class="error"></div>
-              </div>
+              </div> -->
               <div class="form__group">
                 <input
                   type="datetime-local"
                   class="form__input"
-                  id="blogDate"
+                  id="blogDates"
                   class="date-width"
                 />
                 <label for="blogDate" class="form__label"
@@ -439,7 +450,7 @@
             <div class="form__group">
               <textarea
                 name="blogDescription"
-                id="blogDescription"
+                id="blogDescriptions"
                 rows="2"
                 class="form__input"
                 placeholder="blogDescription"
@@ -454,7 +465,7 @@
                 <button
                   type="submit"
                   class="btn btn-login btn-green lg"
-                  id="blog-update"
+                  id="blog-updates"
                 >
                   Update
                 </button></a

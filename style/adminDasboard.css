@@ -108,11 +108,13 @@ body {
   font-size: 1.2rem;
 }
 .container-update-blogs .form__input {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
 }
 .container-update-blogs .form__label {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: bold;
+  color: #777;
   margin-left: 0;
 }
 .container-update-blogs .title-auth {

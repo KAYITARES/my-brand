@@ -6,6 +6,16 @@ const addArticles = document.querySelector(".addArticles");
 const queryLinks = document.querySelector(".queryLink");
 const userLinks = document.querySelector(".users");
 const user = document.querySelector(".user-dash");
+const blogIds = document.querySelector("#blogIds");
+const blogIdo = document.getAnimations("blogIdo");
+const blogTitles = document.getElementById("blogTitles");
+const blogAuthors = document.getElementById("blogAuthors");
+const blogImages = document.getElementById("blogImages");
+const blogDates = document.getElementById("blogDates");
+const blogSummarys = document.getElementById("blogSummarys");
+const blogDescriptions = document.getElementById("blogDescriptions");
+const blogMainTitles = document.getElementById("blogMainTitles");
+const btnUpdate = document.getElementById("blog-updates");
 // window.onload = function () {
 //   addArticles.remove();
 //   query.style.display = "none";
@@ -88,13 +98,19 @@ const getDataFromLocal = () => {
     tableData.innerHTML += `
     <tr index='${index}'>
     <td>${index + 1}</td>
-    <td>${blog.blogAuthor}</td>
-
+    
+    <td>${blog.blogId}</td>
+                      <td>${blog.blogMainTitle}</td>
+                      <td>${blog.blogAuthor}</td>
                       <td>${blog.blogTitle}</td>
-                        <td>${blog.blogId}</td>
-                       <td>${blog.blogDate}</td>
-                       <td ><a href='#' onclick='viewBlog()' style="color: var(--color-primary)">view</a></td>
-                       <td ><a href='#' onclick='updateBlog()' style="color: var(--color-success)">update</a></td>
+                      
+                      <td>${blog.blogSummary}</td>
+                      
+                      <td>${blog.blogDate}</td>
+                      <td>${blog.blogDescription}</td>
+                
+                      
+                       <td ><a class="edit-btn" href='#' style="color: var(--color-success)">update</a></td>
                        <td ><a class="del-btn" href='#'  style="color: var(--color-danger)">Delete</a></td>
                       </tr>
                        `;
@@ -125,6 +141,48 @@ const getDataFromLocal = () => {
       });
     };
   }
+
+  let allEdit = document.querySelectorAll(".edit-btn");
+  for (i = 0; i < allEdit.length; i++) {
+    allEdit[i].onclick = function () {
+      let tr = this.parentElement.parentElement;
+      let td = tr.getElementsByTagName("TD");
+      let index = tr.getAttribute("index");
+      let blogid = td[1].innerHTML;
+      let blogMainTitl = td[2].innerHTML;
+      let blogAuth = td[3].innerHTML;
+      let blogTitl = td[4].innerHTML;
+
+      let blogSum = td[5].innerHTML;
+      // let blogim = td[6].src;
+      let blogDat = td[6].innerHTML;
+      let blogDes = td[7].innerHTML;
+      updateBlog();
+      blogIdo.value = blogid;
+      blogMainTitles.value = blogMainTitl;
+      blogAuthors.value = blogAuth;
+      blogTitles.value = blogTitl;
+      blogSummarys.value = blogSum;
+      // blogImages.value = blogim;
+      blogDates.value = blogDat;
+      blogDescriptions.value = blogDes;
+      // alert(blogDate);
+      btnUpdate.onclick = function (e) {
+        e.preventDefault();
+        blogs[index] = {
+          blogId: blogIdo.value,
+          blogMainTitle: blogMainTitles.value,
+          blogAuthor: blogAuthors.value,
+          blogTitle: blogTitles.value,
+          blogSummary: blogSummarys.value,
+          blogImage: Image,
+          blogDate: blogDates.value,
+          blogDescription: blogDescriptions.value,
+        };
+        localStorage.setItem("blogs", JSON.stringify(blogs));
+      };
+    };
+  }
 };
 getDataFromLocal();
 
@@ -137,45 +195,16 @@ function viewBlog() {
   });
 }
 
-let blogList = JSON.parse(localStorage.getItem("blogs")) || [],
-  indexId = localStorage.getItem("editIndex") || 0;
-
-const blogUpdate = document.querySelector("#blog-update");
-const closeModal = document.querySelector(".close-btn-update");
-const modal = document.querySelector(".modal-update-blogs");
-
-document.getElementById("blogTitle").value = blogList[indexId].blogTitle;
-document.getElementById("blogAuthor").value = blogList[indexId].blogAuthor;
-// document.getElementById("blogImage").value = blogList[indexId].blogImage;
-document.getElementById("blogDate").value = blogList[indexId].blogDate;
-document.getElementById("blogSummary").value = blogList[indexId].blogSummary;
-document.getElementById("blogDescription").value =
-  blogList[indexId].blogDescription;
-document.getElementById("blogMainTitle").value =
-  blogList[indexId].blogMainTitle;
-
-localStorage.setItem("blogs", JSON.stringify(blogList));
-
 function updateBlog() {
+  const closeModal = document.querySelector(".close-btn-update");
+  const modal = document.querySelector(".modal-update-blogs");
   modal.style.display = "block";
-  blogList[indexId].blogTitle = document.getElementById("blogTitle").value;
-  blogList[indexId].blogAuthor = document.getElementById("blogAuthor").value;
-  blogList[indexId].blogImage = document.getElementById("blogImage").value;
-  blogList[indexId].blogDate = document.getElementById("blogDate").value;
-  blogList[indexId].blogSummary = document.getElementById("blogSummary").value;
-  blogList[indexId].blogDescription =
-    document.getElementById("blogDescription").value;
 
-  localStorage.setItem("blogs", JSON.stringify(blogList));
   closeModal.addEventListener("click", () => {
     modal.style.display = "none";
   });
 }
-blogUpdate.addEventListener("click", function (event) {
-  event.preventDefault(); // prevent the form from submitting
-  updateBlog();
-  window.location.href = "../blogs.html"; // redirect to article.html
-});
+
 const publisherCount = (document.querySelector(".publisher-count").innerHTML =
   blogs.length);
 
