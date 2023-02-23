@@ -107,6 +107,7 @@
                   <th>No</th>
                   <th>Blog Author</th>
                   <th>Blog Title</th>
+                  <th>Blog ID</th>
                   <th>Published Date</th>
                   <th colspan="3">Action</th>
                 </tr>
@@ -155,17 +156,29 @@
                   <div class="error"></div>
                 </div>
               </div>
-
-              <div class="form__group">
-                <input
-                  type="text"
-                  class="form__input"
-                  placeholder="Blog Title"
-                  id="blogTitle"
-                />
-                <label for="blogTitle" class="form__label">Blog Title</label>
-                <div class="error"></div>
+              <div class="title-auth">
+                <div class="form__group">
+                  <input
+                    type="text"
+                    class="form__input"
+                    placeholder="Blog Title"
+                    id="blogTitle"
+                  />
+                  <label for="blogTitle" class="form__label">Blog Title</label>
+                  <div class="error"></div>
+                </div>
+                <div class="form__group">
+                  <input
+                    type="number"
+                    class="form__input"
+                    placeholder="Blog ID"
+                    id="blogId"
+                  />
+                  <label for="blogId" class="form__label">id</label>
+                  <div class="error"></div>
+                </div>
               </div>
+
               <div class="form__group">
                 <textarea
                   name="blogSummary"
@@ -339,11 +352,124 @@
           </div>
         </div>
       </div>
+      <div class="modal-view-blogs">
+        <div class="container-view-blogs">
+          <div class="close-blog" id="close-btn-blog">
+            <span class="material-icons-sharp">close</span>
+          </div>
+          <h1>More Description</h1>
+        </div>
+      </div>
+      <div class="modal-update-blogs">
+        <div class="container-update-blogs">
+          <div class="close-blog close-btn-update" id="close-btn-blog">
+            <span class="material-icons-sharp">close</span>
+          </div>
+          <h1>Update the blogs</h1>
+          <form action="" class="fom" id="addFormBlog">
+            <div class="title-auth">
+              <div class="form__group">
+                <input
+                  type="text"
+                  class="form__input"
+                  placeholder="Blog Main Title"
+                  id="blogMainTitle"
+                />
+                <label for="blogTitle" class="form__label"
+                  >Blog Main Title</label
+                >
+                <div class="error"></div>
+              </div>
+
+              <div class="form__group">
+                <input
+                  type="text"
+                  class="form__input"
+                  placeholder="Blog Author"
+                  id="blogAuthor"
+                />
+                <label for="blogAuthor" class="form__label">Blog Author</label>
+                <div class="error"></div>
+              </div>
+            </div>
+
+            <div class="form__group">
+              <input
+                type="text"
+                class="form__input"
+                placeholder="Blog Title"
+                id="blogTitle"
+              />
+              <label for="blogTitle" class="form__label">Blog Title</label>
+              <div class="error"></div>
+            </div>
+            <div class="form__group">
+              <textarea
+                name="blogSummary"
+                id="blogSummary"
+                rows="2"
+                class="form__input"
+                placeholder="Type Short Description"
+              ></textarea
+              ><label for="message" class="form__label"
+                >Type Short Description</label
+              >
+              <div class="error"></div>
+            </div>
+            <div class="title-auth">
+              <div class="form__group">
+                <input type="file" class="form__input" id="blogImage" />
+                <label for="blogImage" class="form__label">Blog Image</label>
+                <div id="imagePreview"></div>
+                <div class="error"></div>
+              </div>
+              <div class="form__group">
+                <input
+                  type="datetime-local"
+                  class="form__input"
+                  id="blogDate"
+                  class="date-width"
+                />
+                <label for="blogDate" class="form__label"
+                  >Blog Published Date</label
+                >
+                <div class="error"></div>
+              </div>
+            </div>
+            <div class="form__group">
+              <textarea
+                name="blogDescription"
+                id="blogDescription"
+                rows="2"
+                class="form__input"
+                placeholder="blogDescription"
+              ></textarea
+              ><label for="blogDescription" class="form__label"
+                >Blog Description</label
+              >
+              <div class="error"></div>
+            </div>
+            <div class="center margin-bottom">
+              <a href="./index.html">
+                <button
+                  type="submit"
+                  class="btn btn-login btn-green lg"
+                  id="blog-update"
+                >
+                  Update
+                </button></a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+
     <script defer src="./js/adblogValidation.js"></script>
     <script src="./js/queries.js"></script>
     <script src="./js/blogs.js"></script>
 
     <script src="./js/admin.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>

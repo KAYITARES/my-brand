@@ -63,6 +63,88 @@ body {
   overflow-x: hidden;
   color: var(--color-dark);
 }
+.modal-view-blogs,
+.modal-update-blogs {
+  display: none;
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: #1c212b89;
+  height: 100vh;
+  transition: 0.5s ease-in-out;
+}
+
+.container-view-blogs {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 90%;
+  background-color: #ffffff;
+  padding: 4rem;
+  transition: 0.5s ease-in-out;
+}
+.container-update-blogs {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  transform: translate(0%, 0%);
+  width: 35%;
+  height: 100vh;
+  z-index: 99999999999;
+  overflow: scroll;
+  background-color: #ffffff;
+  padding: 2rem;
+  transition: 0.5s ease-in-out;
+}
+@media (max-width: 992px) {
+  .container-update-blogs {
+    width: 75%;
+  }
+}
+.container-update-blogs ::-webkit-input-placeholder {
+  color: #444;
+  font-size: 1.2rem;
+}
+.container-update-blogs .form__input {
+  font-size: 1.2rem;
+}
+.container-update-blogs .form__label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 0;
+}
+.container-update-blogs .title-auth {
+  display: block;
+
+  /* justify-content: center; */
+}
+.container-update-blogs h1 {
+  margin-bottom: 2rem;
+  color: var(--color-green);
+  font-size: 1.6rem;
+  text-transform: capitalize;
+}
+.container-update-blogs .form__input {
+  background-color: rgb(221, 235, 247);
+  padding: 0.5rem;
+}
+.close-blog {
+  display: flex;
+  position: absolute;
+  right: 4rem;
+  align-items: center;
+  justify-content: flex-end;
+  width: 3rem;
+  /* text-align: right; */
+  text-align: center;
+  border: 3px solid black;
+  padding: 0.1rem 0.5rem;
+}
+.modal-update-blogs .close-blog {
+  right: 2rem;
+}
 .container {
   display: grid;
   width: 96%;

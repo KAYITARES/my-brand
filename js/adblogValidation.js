@@ -1,4 +1,5 @@
 const form = document.getElementById("addFormBlog");
+const blogId = document.querySelector("#blogId");
 const blogTitle = document.getElementById("blogTitle");
 const blogAuthor = document.getElementById("blogAuthor");
 const blogImage = document.getElementById("blogImage");
@@ -29,6 +30,7 @@ const setError = (element, message) => {
 };
 
 const validateInputs = () => {
+  const idValue = blogId.value;
   const blogTitleValue = blogTitle.value;
   const blogMainTitleValue = blogMainTitle.value;
   const blogAuthorValue = blogAuthor.value;
@@ -37,6 +39,13 @@ const validateInputs = () => {
   const blogSummaryValue = blogSummary.value;
   const blogDescriptionValue = blogDescription.value;
   let isValidated = false;
+  if (idValue != "") {
+    setSuccess(blogId);
+    isValidated = true;
+  } else {
+    setError(blogId, "ID is requires");
+    isValidated = false;
+  }
   if (blogTitleValue != "") {
     console.log("blog title is not empty");
     setSuccess(blogTitle);
@@ -155,6 +164,7 @@ function saveBlogs() {
   if (isValid) {
     Image = localStorage.getItem("image");
     let blog = {};
+    blog.blogId = blogId.value;
     blog.blogImage = Image;
     blog.blogTitle = blogTitle.value;
     blog.blogMainTitle = blogMainTitle.value;
@@ -173,4 +183,8 @@ function saveBlogs() {
   }
 }
 
-blog.onclick = saveBlogs;
+blog.onclick = function (e) {
+  e.preventDefault();
+  saveBlogs();
+  form.reset("");
+};

@@ -55,19 +55,126 @@ themeToggler.addEventListener("click", () => {
   themeToggler.querySelector("span:nth-child(1)").classList.toggle("active");
   themeToggler.querySelector("span:nth-child(2)").classList.toggle("active");
 });
+
+// blogs.forEach((blog, index) => {
+//   const tr = document.createElement("tr");
+//   const trContent = `<td>${index + 1}</td>
+//                      <td>${blog.blogAuthor}</td>
+
+//                      <td>${blog.blogTitle}</td>
+//                      <td>${blog.blogId}</td>
+//                      <td>${blog.blogDate}</td>
+//                      <td ><a href='#' onclick='viewBlog()' style="color: var(--color-primary)">view</a></td>
+//                      <td ><a href='#' onclick='updateBlog()' style="color: var(--color-success)">update</a></td>
+//                      <td ><a class="del-btn" href='#'  style="color: var(--color-danger)">Delete</a></td>
+//                     `;
+//   tr.innerHTML = trContent;
+//   document.querySelector("table .blogu").appendChild(tr);
+//   let i;
+//   let allDelBtn = document.querySelector(".del-btn");
+//   allDelBtn.onclick = alert("hahiye");
+//   for (i = 0; i < allDelBtn.length; i++) {
+//     allDelBtn[i].onclick = function () {
+//       let tr = this.parentElement;
+//       console.log(tr);
+//     };
+//   }
+// });
 blogs = JSON.parse(localStorage.getItem("blogs")) || [];
-blogs.forEach((blog, index) => {
-  const tr = document.createElement("tr");
-  const trContent = `<td>${index + 1}</td>
-                     <td>${blog.blogAuthor}</td>
-                     <td>${blog.blogTitle}</td>
-                     <td>${blog.blogDate}</td>
-                     <td style="color: var(--color-primary)">view</td>
-                     <td style="color: var(--color-success)">update</td>
-                     <td style="color: var(--color-danger)">Delete</td>
-                    `;
-  tr.innerHTML = trContent;
-  document.querySelector("table .blogu").appendChild(tr);
+let tableData = document.querySelector(".blogu");
+const getDataFromLocal = () => {
+  tableData.innerHTML = "";
+  blogs.forEach((blog, index) => {
+    tableData.innerHTML += `
+    <tr index='${index}'>
+    <td>${index + 1}</td>
+    <td>${blog.blogAuthor}</td>
+
+                      <td>${blog.blogTitle}</td>
+                        <td>${blog.blogId}</td>
+                       <td>${blog.blogDate}</td>
+                       <td ><a href='#' onclick='viewBlog()' style="color: var(--color-primary)">view</a></td>
+                       <td ><a href='#' onclick='updateBlog()' style="color: var(--color-success)">update</a></td>
+                       <td ><a class="del-btn" href='#'  style="color: var(--color-danger)">Delete</a></td>
+                      </tr>
+                       `;
+  });
+  let i;
+  let allDelBtn = document.querySelectorAll(".del-btn");
+  for (i = 0; i < allDelBtn.length; i++) {
+    allDelBtn[i].onclick = function () {
+      let tr = this.parentElement.parentElement;
+      let id = tr.getAttribute("index");
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this blog!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          blogs.splice(id, 1);
+          localStorage.setItem("blogs", JSON.stringify(blogs));
+          tr.remove();
+          swal("Poof! Your blog has been deleted!", {
+            icon: "success",
+          });
+        } else {
+          swal("Your blog is safe!");
+        }
+      });
+    };
+  }
+};
+getDataFromLocal();
+
+function viewBlog() {
+  const modal = document.querySelector(".modal-view-blogs");
+  const closeModal = document.querySelector(".close-blog");
+  modal.style.display = "block";
+  closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+}
+
+let blogList = JSON.parse(localStorage.getItem("blogs")) || [],
+  indexId = localStorage.getItem("editIndex") || 0;
+
+const blogUpdate = document.querySelector("#blog-update");
+const closeModal = document.querySelector(".close-btn-update");
+const modal = document.querySelector(".modal-update-blogs");
+
+document.getElementById("blogTitle").value = blogList[indexId].blogTitle;
+document.getElementById("blogAuthor").value = blogList[indexId].blogAuthor;
+// document.getElementById("blogImage").value = blogList[indexId].blogImage;
+document.getElementById("blogDate").value = blogList[indexId].blogDate;
+document.getElementById("blogSummary").value = blogList[indexId].blogSummary;
+document.getElementById("blogDescription").value =
+  blogList[indexId].blogDescription;
+document.getElementById("blogMainTitle").value =
+  blogList[indexId].blogMainTitle;
+
+localStorage.setItem("blogs", JSON.stringify(blogList));
+
+function updateBlog() {
+  modal.style.display = "block";
+  blogList[indexId].blogTitle = document.getElementById("blogTitle").value;
+  blogList[indexId].blogAuthor = document.getElementById("blogAuthor").value;
+  blogList[indexId].blogImage = document.getElementById("blogImage").value;
+  blogList[indexId].blogDate = document.getElementById("blogDate").value;
+  blogList[indexId].blogSummary = document.getElementById("blogSummary").value;
+  blogList[indexId].blogDescription =
+    document.getElementById("blogDescription").value;
+
+  localStorage.setItem("blogs", JSON.stringify(blogList));
+  closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+}
+blogUpdate.addEventListener("click", function (event) {
+  event.preventDefault(); // prevent the form from submitting
+  updateBlog();
+  window.location.href = "../blogs.html"; // redirect to article.html
 });
 const publisherCount = (document.querySelector(".publisher-count").innerHTML =
   blogs.length);
