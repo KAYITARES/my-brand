@@ -175,6 +175,7 @@ const getDataFromLocal = () => {
       blogImages.src = blogim;
 
       btnUpdate.onclick = function (e) {
+        Image = localStorage.getItem("image");
         e.preventDefault();
         blogs[index] = {
           blogMainTitle: blogMainTitles.value,
@@ -184,7 +185,7 @@ const getDataFromLocal = () => {
 
           blogDate: blogDates.value,
           blogDescription: blogDescriptions.value,
-          blogImage: blogim,
+          blogImage: blogImages == "" ? blogim : Image,
         };
         localStorage.setItem("blogs", JSON.stringify(blogs));
       };
