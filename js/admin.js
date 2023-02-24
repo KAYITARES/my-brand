@@ -198,6 +198,7 @@ const getDataFromLocal = () => {
           blogImage: blogImages == "" ? blogim : Images,
         };
         localStorage.setItem("blogs", JSON.stringify(blogs));
+        alert("blog successfuly updated!");
       };
     };
   }
