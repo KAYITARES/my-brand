@@ -90,6 +90,16 @@ themeToggler.addEventListener("click", () => {
 //     };
 //   }
 // });
+let Images;
+document.querySelector("#blogImages").addEventListener("change", function () {
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    localStorage.setItem("image", reader.result);
+  });
+
+  reader.readAsDataURL(this.files[0]);
+});
+
 blogs = JSON.parse(localStorage.getItem("blogs")) || [];
 let tableData = document.querySelector(".blogu");
 const getDataFromLocal = () => {
@@ -175,7 +185,7 @@ const getDataFromLocal = () => {
       blogImages.src = blogim;
 
       btnUpdate.onclick = function (e) {
-        Image = localStorage.getItem("image");
+        Images = localStorage.getItem("image");
         e.preventDefault();
         blogs[index] = {
           blogMainTitle: blogMainTitles.value,
@@ -185,7 +195,7 @@ const getDataFromLocal = () => {
 
           blogDate: blogDates.value,
           blogDescription: blogDescriptions.value,
-          blogImage: blogImages == "" ? blogim : Image,
+          blogImage: blogImages == "" ? blogim : Images,
         };
         localStorage.setItem("blogs", JSON.stringify(blogs));
       };
@@ -229,7 +239,6 @@ recentAuth.forEach((rec) => {
 });
 const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
 contacts.forEach((query, index) => {
-  document.querySelector("table .quer-message").appendChild(tr);
   const tr = document.createElement("tr");
   const trContent = `
   <td>${index + 1}</td>
@@ -239,12 +248,13 @@ contacts.forEach((query, index) => {
 
                   `;
   tr.innerHTML = trContent;
+  document.querySelector("table .quer-message").appendChild(tr);
 });
 const queryCount = document.querySelectorAll(".queryCount");
 queryCount.forEach((query) => {
   query.innerHTML = contacts.length;
 });
-users = JSON.parse(localStorage.getItem("users")) || [];
+const users = JSON.parse(localStorage.getItem("users")) || [];
 // console.log(`THE USER ID ${users.forEach()}`);
 
 users.forEach((user, index) => {

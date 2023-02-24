@@ -88,8 +88,9 @@ function saveContacts() {
   contact.queryMessage = queryMessage.value;
 
   contacts.push(contact);
-  alert("Message Successfuly Sent!");
+
   localStorage.setItem("contacts", JSON.stringify(contacts));
+  alert("Message Successfuly Sent!");
 }
 
 contactButton.onclick = saveContacts;
