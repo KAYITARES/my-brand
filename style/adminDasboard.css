@@ -332,6 +332,9 @@ main .insights > div span {
 main .insights > div.queries span {
   background-color: var(--color-danger);
 }
+main .insights > div.light-query span {
+  background-color: var(--color-light);
+}
 main .insights > div .left {
   display: flex;
   align-items: center;

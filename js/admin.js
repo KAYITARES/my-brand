@@ -228,15 +228,31 @@ const publisherCount = (document.querySelector(".publisher-count").innerHTML =
 
 const recentAuth = document.querySelectorAll(".recentAuth");
 const recently = blogs.slice(-3).reverse();
-
+const recentlyUpdateContainer = document.querySelector(".updates");
 recently.forEach((blog) => {
-  recentAuth.innerText = blog.blogAuth;
-  console.log(recentAuth);
+  const updateBox = document.createElement("div");
+  updateBox.classList.add("update");
+  recentlyUpdateContainer.innerHTML +=
+    `
+  <div class="update">
+              <div class="profile-photo">
+                <img src="${blog.blogImage}" alt="" class="prof-img">
+              </div>
+              <div class="message">
+                <p>
+                  <b class="recentAuth">` +
+    blog.blogAuthor +
+    `</b> published 
+                </p>
+                <small class="text-muted">` +
+    blog.blogDate +
+    `</small>
+              </div>
+            </div>
+  `;
+  console.log("the recent block is " + blog.blogAuthor);
 });
 
-recentAuth.forEach((rec) => {
-  console.log(rec);
-});
 const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
 contacts.forEach((query, index) => {
   const tr = document.createElement("tr");
@@ -269,3 +285,5 @@ users.forEach((user, index) => {
   tr.innerHTML = trContent;
   document.querySelector("table .user-signup").appendChild(tr);
 });
+const usersCount = (document.querySelector(".usersCount").innerHTML =
+  users.length);
