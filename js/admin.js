@@ -152,16 +152,19 @@ const getDataFromLocal = () => {
       let index = tr.getAttribute("index");
       // let blogid = td[1].innerHTML;
       let blogMainTitl = td[1].innerHTML;
+
       let blogAuth = td[2].innerHTML;
       let blogTitl = td[3].innerHTML;
 
       let blogSum = td[4].innerHTML;
 
       let blogDat = td[5].innerHTML;
-      let blogDes = td[7].innerHTML;
-      let blogim = td[8].innerHTML;
+      let blogDes = td[6].innerHTML;
+      let imTag = td[7].getElementsByTagName("IMG");
+      let blogim = imTag[0].src;
+
       updateBlog();
-      // blogIdo.value = blogid;
+
       blogMainTitles.value = blogMainTitl;
       blogAuthors.value = blogAuth;
       blogTitles.value = blogTitl;
@@ -169,12 +172,11 @@ const getDataFromLocal = () => {
 
       blogDates.value = blogDat;
       blogDescriptions.value = blogDes;
-      blogImages.value = blogim;
-      // alert(blogDate);
+      blogImages.src = blogim;
+
       btnUpdate.onclick = function (e) {
         e.preventDefault();
         blogs[index] = {
-          // blogId: blogIdo.value,
           blogMainTitle: blogMainTitles.value,
           blogAuthor: blogAuthors.value,
           blogTitle: blogTitles.value,
@@ -182,7 +184,7 @@ const getDataFromLocal = () => {
 
           blogDate: blogDates.value,
           blogDescription: blogDescriptions.value,
-          blogImage: Image,
+          blogImage: blogim,
         };
         localStorage.setItem("blogs", JSON.stringify(blogs));
       };
