@@ -99,7 +99,7 @@ const getDataFromLocal = () => {
     <tr index='${index}'>
     <td>${index + 1}</td>
     
-    <td>${blog.blogId}</td>
+  
                       <td>${blog.blogMainTitle}</td>
                       <td>${blog.blogAuthor}</td>
                       <td>${blog.blogTitle}</td>
@@ -108,7 +108,9 @@ const getDataFromLocal = () => {
                       
                       <td>${blog.blogDate}</td>
                       <td>${blog.blogDescription}</td>
-                
+                      <td><img src="${
+                        blog.blogImage
+                      }" height='40' width='80'/></td>
                       
                        <td ><a class="edit-btn" href='#' style="color: var(--color-success)">update</a></td>
                        <td ><a class="del-btn" href='#'  style="color: var(--color-danger)">Delete</a></td>
@@ -148,36 +150,39 @@ const getDataFromLocal = () => {
       let tr = this.parentElement.parentElement;
       let td = tr.getElementsByTagName("TD");
       let index = tr.getAttribute("index");
-      let blogid = td[1].innerHTML;
-      let blogMainTitl = td[2].innerHTML;
-      let blogAuth = td[3].innerHTML;
-      let blogTitl = td[4].innerHTML;
+      // let blogid = td[1].innerHTML;
+      let blogMainTitl = td[1].innerHTML;
+      let blogAuth = td[2].innerHTML;
+      let blogTitl = td[3].innerHTML;
 
-      let blogSum = td[5].innerHTML;
-      // let blogim = td[6].src;
-      let blogDat = td[6].innerHTML;
+      let blogSum = td[4].innerHTML;
+
+      let blogDat = td[5].innerHTML;
       let blogDes = td[7].innerHTML;
+      let blogim = td[8].innerHTML;
       updateBlog();
-      blogIdo.value = blogid;
+      // blogIdo.value = blogid;
       blogMainTitles.value = blogMainTitl;
       blogAuthors.value = blogAuth;
       blogTitles.value = blogTitl;
       blogSummarys.value = blogSum;
-      // blogImages.value = blogim;
+
       blogDates.value = blogDat;
       blogDescriptions.value = blogDes;
+      blogImages.value = blogim;
       // alert(blogDate);
       btnUpdate.onclick = function (e) {
         e.preventDefault();
         blogs[index] = {
-          blogId: blogIdo.value,
+          // blogId: blogIdo.value,
           blogMainTitle: blogMainTitles.value,
           blogAuthor: blogAuthors.value,
           blogTitle: blogTitles.value,
           blogSummary: blogSummarys.value,
-          blogImage: Image,
+
           blogDate: blogDates.value,
           blogDescription: blogDescriptions.value,
+          blogImage: Image,
         };
         localStorage.setItem("blogs", JSON.stringify(blogs));
       };

@@ -1,5 +1,5 @@
 const form = document.getElementById("addFormBlog");
-const blogId = document.querySelector("#blogId");
+// const blogId = document.querySelector("#blogId");
 const blogTitle = document.getElementById("blogTitle");
 const blogAuthor = document.getElementById("blogAuthor");
 const blogImage = document.getElementById("blogImage");
@@ -30,7 +30,7 @@ const setError = (element, message) => {
 };
 
 const validateInputs = () => {
-  const idValue = blogId.value;
+  // const idValue = blogId.value;
   const blogTitleValue = blogTitle.value;
   const blogMainTitleValue = blogMainTitle.value;
   const blogAuthorValue = blogAuthor.value;
@@ -39,13 +39,13 @@ const validateInputs = () => {
   const blogSummaryValue = blogSummary.value;
   const blogDescriptionValue = blogDescription.value;
   let isValidated = false;
-  if (idValue != "") {
-    setSuccess(blogId);
-    isValidated = true;
-  } else {
-    setError(blogId, "ID is requires");
-    isValidated = false;
-  }
+  // if (idValue != "") {
+  //   setSuccess(blogId);
+  //   isValidated = true;
+  // } else {
+  //   setError(blogId, "ID is requires");
+  //   isValidated = false;
+  // }
   if (blogTitleValue != "") {
     console.log("blog title is not empty");
     setSuccess(blogTitle);
@@ -164,8 +164,8 @@ function saveBlogs() {
   if (isValid) {
     Image = localStorage.getItem("image");
     let blog = {};
-    blog.blogId = blogId.value;
-    blog.blogImage = Image;
+    // blog.blogId = blogId.value;
+
     blog.blogTitle = blogTitle.value;
     blog.blogMainTitle = blogMainTitle.value;
     blog.blogAuthor = blogAuthor.value;
@@ -173,7 +173,7 @@ function saveBlogs() {
 
     blog.blogSummary = blogSummary.value;
     blog.blogDescription = blogDescription.value;
-
+    blog.blogImage = Image;
     blogs.push(blog);
 
     localStorage.setItem("blogs", JSON.stringify(blogs));
