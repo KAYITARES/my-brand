@@ -970,6 +970,9 @@ input:valid ~ label {
 .form__group:not(:last-child) {
   margin-bottom: 0rem;
 }
+#signUp .form__input {
+  color: #000;
+}
 .form__input {
   padding: 1rem 2rem;
   border: none;
@@ -977,7 +980,8 @@ input:valid ~ label {
   display: block;
   width: 100%;
   font-size: 1.5rem;
-  color: inherit;
+
+  /* color: inherit; */
   font-family: inherit;
 
   transition: all 0.2s;

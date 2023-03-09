@@ -6,6 +6,7 @@ const addArticles = document.querySelector(".addArticles");
 const queryLinks = document.querySelector(".queryLink");
 const userLinks = document.querySelector(".users");
 const user = document.querySelector(".user-dash");
+const usersTable = document.querySelector("#userTable");
 const blogIds = document.querySelector("#blogIds");
 const blogIdo = document.getAnimations("blogIdo");
 const blogTitles = document.getElementById("blogTitles");
