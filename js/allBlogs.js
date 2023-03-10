@@ -20,7 +20,7 @@ fetch("https://long-blue-firefly-vest.cyclic.app/api/v1/blog")
                         
                         <td>${blog.blogSummary}</td>
                         
-                        <td>${blog.blogDate}</td>
+                        <td>${blog.publishedDate}</td>
                         <td>${blog.blogDescription}</td>
                         <td><img src="${
                           blog.blogImage

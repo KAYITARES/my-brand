@@ -25,11 +25,17 @@
 }
 .blogDetail-detail-one {
   display: flex;
+  /* background-color: red; */
+  flex-direction: column;
   width: 100%;
   gap: 3rem;
 }
 .text-one {
-  width: 60%;
+  width: 100%;
+  column-count: 2;
+  column-gap: 4rem;
+  column-rule: 2px solid rgb(87, 86, 86);
+  hyphens: auto;
 }
 .text-one p,
 .detail-two-p {
