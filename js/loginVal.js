@@ -5,11 +5,10 @@ const emailLogin = document.getElementById("emailLogin");
 const passwordLogin = document.getElementById("passwordLogin");
 const login = document.getElementById("loginButton");
 
-formLogin.addEventListener("submit", (e) => {
-  e.preventDefault();
+// formLogin.addEventListener("submit", (e) => {
+//   e.preventDefault();
 
-  // signIn();
-});
+// });
 
 const setSuccess = (element) => {
   const inputControl = element.parentElement;
@@ -77,4 +76,4 @@ function signIn() {
   }
 }
 
-login.onclick = signIn;
+// login.onclick = signIn;

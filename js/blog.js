@@ -12,7 +12,7 @@ fetch("https://long-blue-firefly-vest.cyclic.app/api/v1/blog")
         blogBox.classList.add("blogz-col-1");
         blogContainer.innerHTML +=
           `<div class="blogz-col-1">
-          <a href="./blogDetail.html" class="readmore" id="${index}">
+          <a href="./blogDetail.html?id=${blog._id}" class="readmore" id="${index}">
     <img src="${blog.blogImage}" class="blog-img" />
      </a>
   <div class="padd-2">

@@ -74,23 +74,23 @@ allLinks.forEach(function (link) {
 //   modal.classList.remove("show");
 // });
 
-const queryfullName = document.querySelector("#name");
-const queryEmail = document.querySelector("#email");
-const queryMessage = document.querySelector("#message");
-const contactButton = document.querySelector("#contactButton");
-const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+// const queryfullName = document.querySelector("#name");
+// const queryEmail = document.querySelector("#email");
+// const queryMessage = document.querySelector("#message");
+// const contactButton = document.querySelector("#contactButton");
+// const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
 
-function saveContacts() {
-  let contact = {};
+// function saveContacts() {
+//   let contact = {};
 
-  contact.queryfullName = queryfullName.value;
-  contact.queryEmail = queryEmail.value;
-  contact.queryMessage = queryMessage.value;
+//   contact.queryfullName = queryfullName.value;
+//   contact.queryEmail = queryEmail.value;
+//   contact.queryMessage = queryMessage.value;
 
-  contacts.push(contact);
+//   contacts.push(contact);
 
-  localStorage.setItem("contacts", JSON.stringify(contacts));
-  alert("Message Successfuly Sent!");
-}
+//   localStorage.setItem("contacts", JSON.stringify(contacts));
+//   alert("Message Successfuly Sent!");
+// }
 
-contactButton.onclick = saveContacts;
+// contactButton.onclick = saveContacts;
