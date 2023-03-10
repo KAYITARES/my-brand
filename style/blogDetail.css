@@ -4,13 +4,12 @@
 }
 .blogDetail {
   display: flex;
-  flex-direction: column;
   gap: 3rem;
   width: 100%;
 }
 .blogDetail-one {
   background: #ffffff;
-  width: 100%;
+  width: 67%;
   border-radius: 3px;
   padding: 5rem 6rem;
 }
@@ -21,9 +20,8 @@
 .blogDetail-main--title {
   font-size: 4.2rem;
   color: #444;
-  text-align: center;
   line-height: 1.8;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
 }
 .blogDetail-detail-one {
   display: flex;
@@ -34,7 +32,7 @@
 }
 .text-one {
   width: 100%;
-  column-count: 4;
+  column-count: 2;
   column-gap: 4rem;
   column-rule: 2px solid rgb(87, 86, 86);
   hyphens: auto;
@@ -85,7 +83,6 @@
 .detail-h3 {
   font-size: 2.7rem;
   line-height: 1.8;
-  text-align: center;
   color: var(--color-red);
   margin: 2rem 0;
 }
