@@ -84,10 +84,10 @@ fetch("https://long-blue-firefly-vest.cyclic.app/api/v1/blog")
 //   blogContainer.innerHTML = `<h1 style='color:red'>NO BLOG FOUND </h1>`;
 // }
 
-let readmore = document.querySelectorAll(".readmore");
-for (let i = 0; i < readmore.length; i++) {
-  readmore[i].addEventListener("click", () => {
-    let indexClicked = readmore[i].getAttribute("id");
-    localStorage.setItem("blogIndex", indexClicked);
-  });
-}
+// let readmore = document.querySelectorAll(".readmore");
+// for (let i = 0; i < readmore.length; i++) {
+//   readmore[i].addEventListener("click", () => {
+//     let indexClicked = readmore[i].getAttribute("id");
+//     localStorage.setItem("blogIndex", indexClicked);
+//   });
+// }

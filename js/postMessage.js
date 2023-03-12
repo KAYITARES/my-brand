@@ -6,7 +6,7 @@ sendMsg.addEventListener("click", () => {
   const message = document.getElementById("message").value;
   const name = document.getElementById("name").value;
   console.log("data", email, message, name);
-  const data = { fullName: name, email, message };
+  const data = { fullName: name, email, content: message };
   //   console.log(data);
   //interacy with endpoint
   fetch("https://long-blue-firefly-vest.cyclic.app/api/v1/message", {
@@ -34,7 +34,7 @@ contactForm.addEventListener("submit", (event) => {
   const message = document.getElementById("message").value;
   const name = document.getElementById("name").value;
 
-  const data = { name, email, message };
+  const data = { fullName: name, email, content: message };
   //   console.log(data);
   //interacy with endpoint
   fetch("https://long-blue-firefly-vest.cyclic.app/api/v1/message", {

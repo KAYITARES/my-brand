@@ -12,7 +12,7 @@ const blogIdo = document.getAnimations("blogIdo");
 const blogTitles = document.getElementById("blogTitles");
 const blogAuthors = document.getElementById("blogAuthors");
 const blogImages = document.getElementById("blogImages");
-const blogDates = document.getElementById("blogDates");
+const publishedDate = document.getElementById("blogDates");
 const blogSummarys = document.getElementById("blogSummarys");
 const blogDescriptions = document.getElementById("blogDescriptions");
 const blogMainTitles = document.getElementById("blogMainTitles");
@@ -91,7 +91,7 @@ themeToggler.addEventListener("click", () => {
 //     };
 //   }
 // });
-let Images;
+// let Images;
 document.querySelector("#blogImages").addEventListener("change", function () {
   const reader = new FileReader();
   reader.addEventListener("load", () => {
@@ -176,12 +176,12 @@ const getDataFromLocal = () => {
 
       updateBlog();
 
-      blogMainTitles.value = blogMainTitl;
+      blogMainTitles.value = "amata";
       blogAuthors.value = blogAuth;
       blogTitles.value = blogTitl;
       blogSummarys.value = blogSum;
 
-      blogDates.value = blogDat;
+      publishedDate.value = blogDat;
       blogDescriptions.value = blogDes;
       blogImages.src = blogim;
 
@@ -194,7 +194,7 @@ const getDataFromLocal = () => {
           blogTitle: blogTitles.value,
           blogSummary: blogSummarys.value,
 
-          blogDate: blogDates.value,
+          blogDate: publishedDate.value,
           blogDescription: blogDescriptions.value,
           blogImage: blogImages == "" ? blogim : Images,
         };

@@ -5,8 +5,8 @@ fetch("https://long-blue-firefly-vest.cyclic.app/api/v1/user/all")
     return resp.json();
   })
   .then((data) => {
-    console.log("the data is ...." + data.data.map((dat) => dat._id));
-    userTable.innerHTML = "";
+    userTable.innerHTML = " ";
+
     document.querySelector(".usersCount").innerHTML = data.data.length;
     // document.querySelector(".publisher-count").innerHTML = data.data.length;
     data.data.map((user, index) => {

@@ -13,7 +13,35 @@
   border-radius: 3px;
   padding: 5rem 6rem;
 }
-
+.commentForm {
+  margin-top: 1rem;
+  position: relative;
+}
+#comment {
+  width: 100%;
+  height: 5rem;
+}
+.commentDisplay {
+  color: #333;
+  background-color: #ffffffa7;
+  padding: 1rem;
+  margin: 2rem;
+  /* margin-top: 2rem; */
+  text-align: right;
+  font-size: 1.6rem;
+}
+.comment-container {
+  background: #f1f1f1f1;
+  margin-top: 3rem;
+  padding: 2rem;
+}
+.send {
+  position: absolute;
+  bottom: 40%;
+  right: 5%;
+  cursor: pointer;
+  color: rgba(0, 251, 255, 0.753);
+}
 .blogDetail-two img {
   width: 10rem;
 }
