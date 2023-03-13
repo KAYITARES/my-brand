@@ -228,32 +228,32 @@ function updateBlog() {
 const publisherCount = (document.querySelector(".publisher-count").innerHTML =
   blogs.length);
 
-const recentAuth = document.querySelectorAll(".recentAuth");
-const recently = blogs.slice(-3).reverse();
-const recentlyUpdateContainer = document.querySelector(".updates");
-recently.forEach((blog) => {
-  const updateBox = document.createElement("div");
-  updateBox.classList.add("update");
-  recentlyUpdateContainer.innerHTML +=
-    `
-  <div class="update">
-              <div class="profile-photo">
-                <img src="${blog.blogImage}" alt="" class="prof-img">
-              </div>
-              <div class="message">
-                <p>
-                  <b class="recentAuth">` +
-    blog.blogAuthor +
-    `</b> published 
-                </p>
-                <small class="text-muted">` +
-    blog.blogDate +
-    `</small>
-              </div>
-            </div>
-  `;
-  console.log("the recent block is " + blog.blogAuthor);
-});
+// const recentAuth = document.querySelectorAll(".recentAuth");
+// const recently = blogs.slice(-3).reverse();
+// const recentlyUpdateContainer = document.querySelector(".updates");
+// recently.forEach((blog) => {
+//   const updateBox = document.createElement("div");
+//   updateBox.classList.add("update");
+//   recentlyUpdateContainer.innerHTML +=
+//     `
+//   <div class="update">
+//               <div class="profile-photo">
+//                 <img src="${blog.blogImage}" alt="" class="prof-img">
+//               </div>
+//               <div class="message">
+//                 <p>
+//                   <b class="recentAuth">` +
+//     blog.blogAuthor +
+//     `</b> published
+//                 </p>
+//                 <small class="text-muted">` +
+//     blog.blogDate +
+//     `</small>
+//               </div>
+//             </div>
+//   `;
+//   console.log("the recent block is " + blog.blogAuthor);
+// });
 
 const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
 contacts.forEach((query, index) => {

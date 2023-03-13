@@ -1,63 +1,3 @@
-// const blogTable = document.querySelector("#blogTable");
-// const token = window.localStorage.getItem("x-auth-token") || "";
-// fetch("https://long-blue-firefly-vest.cyclic.app/api/v1/blog")
-//   .then((resp) => {
-//     return resp.json();
-//   })
-//   .then((data) => {
-//     // console.log("the data is ...." + data.data.map((dat) => dat._id));
-//     blogTable.innerHTML = "";
-//     document.querySelector(".publisher-count").innerHTML = data.data.length;
-//     data.data.map((blog, index) => {
-//       blogTable.innerHTML += `
-//       <tr index='${index}'>
-//       <td>${index + 1}</td>
-
-//                         <td>${blog.blogMainTitle}</td>
-//                         <td>${blog.blogAuthor}</td>
-
-//                         <td>${blog.publishedDate}</td>
-
-//                         <td><img src="${
-//                           blog.blogImage
-//                         }" height='40' width='60'/></td>
-
-//                          <td ><a class="edit-btn" href='#' style="color: var(--color-success)">update</a></td>
-//                          <td ><a class="delbtn" href='./adminDashboard.html?id=${
-//                            blog._id
-//                          }' style="color: var(--color-danger)">Delete</a></td>
-//                         </tr>
-
-//                         `;
-//       //   console.log(blog._id);
-//       let i;
-//       deltbtn = document.querySelectorAll(".delbtn");
-//       for (i = 0; i < deltbtn.length; i++) {
-//         deltbtn[i].onclick = function () {
-//           //   alert(_id);
-//           //   alert(`https://long-blue-firefly-vest.cyclic.app/api/v1/blog/${id}`);
-//           const paramsId = new URLSearchParams(window.location.search);
-//           const _id = paramsId.get("id");
-//           alert(_id);
-//           fetch(`http://localhost:3030/api/v1/blog/${_id}`, {
-//             method: "DELETE",
-//             headers: {
-//               "x-auth-token": token,
-//             },
-//           })
-//             .then((resp) => {
-//               resp.json();
-//               console.log("this is the response" + resp);
-//             })
-//             .then((data) => {
-//               alert(data.message);
-//             })
-//             .catch((error) => console.log(error));
-//         };
-//       }
-//     });
-//   })
-//   .catch((error) => console.log(error));
 const paramsId = new URLSearchParams(window.location.search);
 const _id = paramsId.get("id");
 
@@ -97,6 +37,32 @@ fetch("https://long-blue-firefly-vest.cyclic.app/api/v1/blog")
   .then((data) => {
     blogTable.innerHTML = "";
     document.querySelector(".publisher-count").innerHTML = data.data.length;
+    const recentAuth = document.querySelectorAll(".recentAuth");
+    const recently = data.data.slice(-3).reverse();
+    const recentlyUpdateContainer = document.querySelector(".updates");
+    recently.forEach((blog) => {
+      const updateBox = document.createElement("div");
+      updateBox.classList.add("update");
+      recentlyUpdateContainer.innerHTML +=
+        `
+  <div class="update">
+              <div class="profile-photo">
+                <img src="${blog.blogImage}" alt="" class="prof-img">
+              </div>
+              <div class="message">
+                <p>
+                  <b class="recentAuth">` +
+        blog.blogAuthor +
+        `</b> published 
+                </p>
+                <small class="text-muted">` +
+        blog.publishedDate +
+        `</small>
+              </div>
+            </div>
+  `;
+      console.log("the recent block is " + blog.blogAuthor);
+    });
     data.data.map((blog, index) => {
       blogTable.innerHTML += `
       <tr index='${index}'>
@@ -107,10 +73,12 @@ fetch("https://long-blue-firefly-vest.cyclic.app/api/v1/blog")
                         <td>${blog.blogAuthor}</td>
                         <td>${blog.blogTitle}</td>
                         
-                        <td>${blog.blogSummary}</td>
+                        <td class='card-text-preview'>${blog.blogSummary}</td>
                         
                         <td>${blog.publishedDate}</td>
-                        <td>${blog.blogDescription}</td>
+                        <td class='card-text-preview'>${
+                          blog.blogDescription
+                        }</td>
                         <td><img src="${
                           blog.blogImage
                         }" height='40' width='80'/></td>

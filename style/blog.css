@@ -252,3 +252,10 @@ html {
     width: 100%;
   }
 }
+
+.card-text-preview {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
